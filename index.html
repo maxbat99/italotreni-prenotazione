@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638884764852559742" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638884800995120179" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -67,97 +67,250 @@
 						</div><div id="imPageRow_2" class="imPageRow">
 						<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden;"><div id="imPageRowGraphics_2"></div></div>
 						</div>
-						<div id="imCell_5" class=""> <div id="imCellStyleGraphics_5"></div><div id="imCellStyleBorders_5"></div><div id="imHTMLObject_05" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!-- Stripe JS -->
-						<script src="https://js.stripe.com/v3/"></script>
+						<div id="imCell_5" class=""> <div id="imCellStyleGraphics_5"></div><div id="imCellStyleBorders_5"></div><div id="imHTMLObject_05" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!DOCTYPE html>
+						<html lang="it">
+						<head>
+						  <meta charset="UTF-8">
+						  <title>ItaloTreni - Prenota il tuo viaggio</title>
+						  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+						  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+						  <style>
+						    body {
+						      margin: 0;
+						      font-family: 'Titillium Web', sans-serif;
+						      background-color: #fff;
+						      color: #333;
+						    }
+						    header {
+						      background-color: #c10021;
+						      padding: 20px;
+						      text-align: center;
+						    }
+						    header img {
+						      max-height: 50px;
+						    }
+						    nav {
+						      background-color: #900019;
+						      padding: 10px;
+						      text-align: center;
+						    }
+						    nav a {
+						      color: white;
+						      margin: 0 15px;
+						      text-decoration: none;
+						      font-weight: bold;
+						    }
+						    nav a:hover {
+						      text-decoration: underline;
+						    }
+						    main {
+						      padding: 30px;
+						      max-width: 1000px;
+						      margin: auto;
+						    }
+						    h1, h2 {
+						      color: #c10021;
+						      margin-bottom: 20px;
+						      text-align: center;
+						    }
+						    #formRicerca {
+						      display: flex;
+						      flex-wrap: wrap;
+						      justify-content: center;
+						      gap: 15px;
+						      margin-bottom: 30px;
+						    }
+						    #formRicerca input,
+						    #formRicerca select {
+						      padding: 10px;
+						      width: 180px;
+						      border: 1px solid #ccc;
+						      border-radius: 6px;
+						      font-size: 15px;
+						    }
+						    #formRicerca button {
+						      background-color: #c10021;
+						      color: white;
+						      font-weight: bold;
+						      padding: 10px 20px;
+						      border: none;
+						      border-radius: 6px;
+						      cursor: pointer;
+						    }
+						    #formRicerca button:hover {
+						      background-color: #900019;
+						    }
+						    table {
+						      width: 100%;
+						      border-collapse: collapse;
+						      margin-bottom: 40px;
+						    }
+						    th, td {
+						      padding: 12px;
+						      border: 1px solid #ddd;
+						      text-align: center;
+						    }
+						    th {
+						      background-color: #c10021;
+						      color: white;
+						    }
+						    button {
+						      background-color: #c10021;
+						      color: white;
+						      border: none;
+						      padding: 8px 14px;
+						      border-radius: 4px;
+						      cursor: pointer;
+						      font-weight: bold;
+						    }
+						    button:hover {
+						      background-color: #900019;
+						    }
+						    #riepilogoBiglietto {
+						      margin-top: 30px;
+						      text-align: left;
+						    }
+						    img.qr {
+						      margin-top: 15px;
+						    }
+						    footer {
+						      background-color: #f2f2f2;
+						      text-align: center;
+						      padding: 20px;
+						      color: #666;
+						      font-size: 14px;
+						    }
+						  </style>
+						  <script src="https://js.stripe.com/v3/"></script>
+						</head>
+						<body>
+						  <header>
+						    <img src="images/logo-italo.png" alt="Logo ItaloTreni" />
+						  </header>
+						  <nav>
+						    <a href="#">Home</a>
+						    <a href="#">Acquista</a>
+						    <a href="#">Orari</a>
+						    <a href="#">Offerte</a>
+						    <a href="#">Assistenza</a>
+						  </nav>
+						  <main>
+						    <h1>🎟 Prenota il tuo biglietto</h1>
+						    <h2>🔍 Cerca il tuo treno</h2>
+						    <form id="formRicerca">
+						      <input type="text" id="inputPartenza" placeholder="🚉 Da" required>
+						      <input type="text" id="inputArrivo" placeholder="🏁 A" required>
+						      <input type="date" id="inputData" required>
+						      <select id="inputPosti">
+						        <option value="">🚆 Tipo posto</option>
+						        <option>Standard</option>
+						        <option>Comfort</option>
+						        <option>Prima</option>
+						      </select>
+						      <button type="submit">Cerca</button>
+						    </form>
 						
-						<!-- Contenitori -->
-						<div id="riepilogoBiglietto"></div>
-						<div id="italotreni"></div>
+						    <div id="italotreni"></div>
+						    <div id="riepilogoBiglietto"></div>
+						  </main>
+						  <footer>
+						    &copy; 2025 ItaloTreni. Powered by Massimo.
+						  </footer>
 						
-						<script>
-						// 👉 Inserisci qui la tua chiave pubblica Stripe
-						const stripe = Stripe("pk_live_TUA_CHIAVE_PUBBLICA");
+						  <script>
+						    const stripe = Stripe("pk_live_51RcZZKFt7EaY9OTPn4hu3z4ZYfvJLZ1JsqNJhsyKj7T5BBSQCDOGVMDq5YUCkYL5HqsqoE9et25CbUjGZkAdpblO00lNy34est");
 						
-						// Funzione acquisto biglietto
-						function acquista(treno) {
-						  const data = document.getElementById("data-" + treno.codice).value;
-						  const posto = document.getElementById("posto-" + treno.codice).value;
-						  const email = document.getElementById("email-" + treno.codice).value;
+						    function acquista(treno) {
+						      const data = document.getElementById("data-" + treno.codice).value;
+						      const posto = document.getElementById("posto-" + treno.codice).value;
+						      const email = document.getElementById("email-" + treno.codice).value;
 						
-						  const payload = {
-						    codice: treno.codice,
-						    partenza: treno.partenza,
-						    arrivo: treno.arrivo,
-						    prezzo: treno.prezzo.replace("€", "").replace(",", "."),
-						    data,
-						    posto,
-						    email
-						  };
+						      const payload = {
+						        codice: treno.codice,
+						        partenza: treno.partenza,
+						        arrivo: treno.arrivo,
+						        prezzo: treno.prezzo.replace("€", "").replace(",", "."),
+						        data,
+						        posto,
+						        email
+						      };
 						
-						  document.getElementById("riepilogoBiglietto").innerHTML = `
-						    <h3>🎫 Riepilogo Prenotazione</h3>
-						    <p><strong>Da:</strong> ${treno.partenza}</p>
-						    <p><strong>A:</strong> ${treno.arrivo}</p>
-						    <p><strong>Data:</strong> ${data}</p>
-						    <p><strong>Posto:</strong> ${posto}</p>
-						    <p><strong>Email:</strong> ${email}</p>
-						    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${treno.codice}-${data}-${posto}" alt="QR Biglietto">
-						    <button id="confermaPagamento">Procedi al pagamento</button>
-						  `;
+						      document.getElementById("riepilogoBiglietto").innerHTML = `
+						        <h3>🎫 Riepilogo Prenotazione</h3>
+						        <p><strong>Da:</strong> ${treno.partenza} → <strong>A:</strong> ${treno.arrivo}</p>
+						        <p><strong>Data:</strong> ${data} | <strong>Posto:</strong> ${posto}</p>
+						        <p><strong>Email:</strong> ${email}</p>
+						        <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${treno.codice}-${data}-${posto}" alt="QR Biglietto" />
+						        <br><br><button id="confermaPagamento">Procedi al pagamento</button>
+						      `;
 						
-						  document.getElementById("confermaPagamento").onclick = () => inviaPrenotazione(payload);
-						}
+						      document.getElementById("confermaPagamento").onclick = () => inviaPrenotazione(payload);
+						    }
 						
-						// Invio al backend Netlify
-						function inviaPrenotazione(payload) {
-						  fetch("/.netlify/functions/create-checkout-session", {
-						    method: "POST",
-						    headers: { "Content-Type": "application/json" },
-						    body: JSON.stringify(payload)
-						  })
-						  .then(res => res.json())
-						  .then(session => stripe.redirectToCheckout({ sessionId: session.id }))
-						  .catch(err => alert("Errore nel pagamento: " + err.message));
-						}
+						    function inviaPrenotazione(payload) {
+						      fetch("/.netlify/functions/create-checkout-session", {
+						        method: "POST",
+						        headers: { "Content-Type": "application/json" },
+						        body: JSON.stringify(payload)
+						      })
+						      .then(res => res.json())
+						      .then(session => stripe.redirectToCheckout({ sessionId: session.id }))
+						      .catch(err => alert("Errore nel pagamento: " + err.message));
+						    }
 						
-						// Caricamento tratte da Google Script
-						fetch("https://script.google.com/macros/s/AKfycbyqKn1lcDJUPsRg_HtKOAlKJMlG4mfYtRPIITzqUdKh/dev")
-						  .then(res => res.json())
-						  .then(data => {
-						    let html = `<table border="1"><tr>
-						      <th>Partenza</th><th>Arrivo</th><th>Orario</th><th>Prezzo</th>
-						      <th>Data</th><th>Posto</th><th>Email</th><th>Prenota</th></tr>`;
+						    fetch("https://script.google.com/macros/s/AKfycbyqKn1lcDJUPsRg_HtKOAlKJMlG4mfYtRPIITzqUdKh/dev")
+						      .then(res => res.json())
+						      .then(data => {
+						        let html = `<table><tr>
+						          <th>Partenza</th><th>Arrivo</th><th>Orario</th><th>Prezzo</th>
+						          <th>Data</th><th>Posto</th><th>Email</th><th>Prenota</th></tr>`;
 						
-						    data.forEach(treno => {
-						      const id = treno.codice;
-						      html += `<tr>
-						        <td>${treno.partenza}</td>
-						        <td>${treno.arrivo}</td>
-						        <td>${treno.orario}</td>
-						        <td>${treno.prezzo}</td>
-						        <td><input type="date" id="data-${id}"></td>
-						        <td>
-						          <select id="posto-${id}">
-						            <option>1A</option><option>2B</option><option>3C</option>
-						          </select>
-						        </td>
-						        <td><input type="email" id="email-${id}" placeholder="cliente@email.it"></td>
-						        <td><button id="btn-${id}">Prenota</button></td>
-						      </tr>`;
-						    });
+						        data.forEach(treno => {
+						          const id = treno.codice;
+						          html += `<tr>
+						            <td>${treno.partenza}</td>
+						            <td>${treno.arrivo}</td>
+						            <td>${treno.orario}</td>
+						            <td>${treno.prezzo}</td>
+						            <td><input type="date" id="data-${id}" /></td>
+						            <td><select id="posto-${id}">
+						              <option>1A</option><option>2B</option><option>3C</option>
+						            </select></td>
+						            <td><input type="email" id="email-${id}" placeholder="cliente@email.it" /></td>
+						            <td><button id="btn-${id}">Prenota</button></td>
+						          </tr>`;
+						        });
 						
-						    html += "</table>";
-						    document.getElementById("italotreni").innerHTML = html;
+						        html += "</table>";
+						        document.getElementById("italotreni").innerHTML = html;
 						
-						    // Attiva i pulsanti
-						    data.forEach(treno => {
-						      document.getElementById("btn-" + treno.codice).addEventListener("click", () => acquista(treno));
-						    });
+						        data.forEach(treno => {
+						          document.getElementById("btn-" + treno.codice).addEventListener("click", () => acquista(treno));
+						        });
+						
+						        document.getElementById("formRic
+						        document.getElementById("formRicerca").addEventListener("submit", function(e) {
+						  e.preventDefault();
+						  const partenza = document.getElementById("inputPartenza").value.toLowerCase();
+						  const arrivo = document.getElementById("inputArrivo").value.toLowerCase();
+						  const posto = document.getElementById("inputPosti").value.toLowerCase();
+						
+						  const righe = document.querySelectorAll("#italotreni table tr");
+						
+						  righe.forEach((riga, index) => {
+						    if (index === 0) return;
+						    const testo = riga.textContent.toLowerCase();
+						    const match = testo.includes(partenza) && testo.includes(arrivo) && testo.includes(posto);
+						    riga.style.display = match ? "" : "none";
+						  });
+						});
 						  })
 						  .catch(err => {
 						    document.getElementById("italotreni").innerHTML = "<p>❌ Errore nel caricamento tratte.</p>";
 						  });
-						</script>
+						  </script>
+						</body>
+						</html>
 						</div></div><div id="imCell_2" class=""> <div id="imCellStyleGraphics_2"></div><div id="imCellStyleBorders_2"></div><div id="imObjectImage_02"><div id="imObjectImage_02_container"><img src="images/Immagine-2025-07-06-030855.png" title="" alt="" width="588" height="368" />
 						</div></div></div><div id="imPageRow_3" class="imPageRow">
 						
