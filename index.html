@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638884800995120179" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638884820419396723" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -70,184 +70,188 @@
 						<div id="imCell_5" class=""> <div id="imCellStyleGraphics_5"></div><div id="imCellStyleBorders_5"></div><div id="imHTMLObject_05" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!DOCTYPE html>
 						<html lang="it">
 						<head>
-						  <meta charset="UTF-8">
-						  <title>ItaloTreni - Prenota il tuo viaggio</title>
-						  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-						  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+						  <meta charset="UTF-8" />
+						  <title>Italo Bob Prenotazione</title>
+						  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+						  <script src="https://js.stripe.com/v3/"></script>
 						  <style>
 						    body {
-						      margin: 0;
-						      font-family: 'Titillium Web', sans-serif;
-						      background-color: #fff;
-						      color: #333;
+						      font-family: Arial, sans-serif;
+						      margin: 20px;
 						    }
-						    header {
-						      background-color: #c10021;
-						      padding: 20px;
-						      text-align: center;
-						    }
-						    header img {
-						      max-height: 50px;
-						    }
-						    nav {
-						      background-color: #900019;
-						      padding: 10px;
-						      text-align: center;
-						    }
-						    nav a {
-						      color: white;
-						      margin: 0 15px;
-						      text-decoration: none;
-						      font-weight: bold;
-						    }
-						    nav a:hover {
-						      text-decoration: underline;
-						    }
-						    main {
-						      padding: 30px;
-						      max-width: 1000px;
-						      margin: auto;
-						    }
-						    h1, h2 {
-						      color: #c10021;
-						      margin-bottom: 20px;
-						      text-align: center;
-						    }
-						    #formRicerca {
+						    .italo-form {
 						      display: flex;
 						      flex-wrap: wrap;
-						      justify-content: center;
-						      gap: 15px;
-						      margin-bottom: 30px;
+						      gap: 12px;
+						      margin-bottom: 20px;
 						    }
-						    #formRicerca input,
-						    #formRicerca select {
-						      padding: 10px;
-						      width: 180px;
+						    .italo-form input, .italo-form select {
+						      padding: 8px;
+						      flex: 1 1 180px;
 						      border: 1px solid #ccc;
-						      border-radius: 6px;
-						      font-size: 15px;
+						      border-radius: 4px;
 						    }
-						    #formRicerca button {
-						      background-color: #c10021;
-						      color: white;
-						      font-weight: bold;
-						      padding: 10px 20px;
-						      border: none;
-						      border-radius: 6px;
-						      cursor: pointer;
-						    }
-						    #formRicerca button:hover {
-						      background-color: #900019;
-						    }
-						    table {
-						      width: 100%;
-						      border-collapse: collapse;
-						      margin-bottom: 40px;
-						    }
-						    th, td {
-						      padding: 12px;
-						      border: 1px solid #ddd;
-						      text-align: center;
-						    }
-						    th {
-						      background-color: #c10021;
-						      color: white;
-						    }
-						    button {
-						      background-color: #c10021;
+						    .italo-form button {
+						      background-color: #B2002E;
 						      color: white;
 						      border: none;
-						      padding: 8px 14px;
+						      padding: 10px 18px;
 						      border-radius: 4px;
 						      cursor: pointer;
+						    }
+						    .italo-row {
+						      display: flex;
+						      flex-wrap: wrap;
+						      padding: 12px 0;
+						      border-bottom: 1px solid #ddd;
+						      align-items: center;
+						    }
+						    .italo-header {
+						      background-color: #B2002E;
+						      color: white;
 						      font-weight: bold;
 						    }
-						    button:hover {
-						      background-color: #900019;
+						    .italo-col {
+						      flex: 1 1 130px;
+						      padding: 8px;
 						    }
-						    #riepilogoBiglietto {
+						    .btn-prenota {
+						      background-color: #B2002E;
+						      color: white;
+						      padding: 6px 12px;
+						      border: none;
+						      border-radius: 4px;
+						      cursor: pointer;
+						    }
+						    #riepilogo {
 						      margin-top: 30px;
-						      text-align: left;
+						      padding: 15px;
+						      border: 1px solid #ccc;
+						      border-radius: 6px;
 						    }
-						    img.qr {
-						      margin-top: 15px;
-						    }
-						    footer {
-						      background-color: #f2f2f2;
-						      text-align: center;
-						      padding: 20px;
-						      color: #666;
-						      font-size: 14px;
+						    @media screen and (max-width: 768px) {
+						      .italo-row {
+						        flex-direction: column;
+						        align-items: flex-start;
+						      }
 						    }
 						  </style>
-						  <script src="https://js.stripe.com/v3/"></script>
 						</head>
 						<body>
-						  <header>
-						    <img src="images/logo-italo.png" alt="Logo ItaloTreni" />
-						  </header>
-						  <nav>
-						    <a href="#">Home</a>
-						    <a href="#">Acquista</a>
-						    <a href="#">Orari</a>
-						    <a href="#">Offerte</a>
-						    <a href="#">Assistenza</a>
-						  </nav>
-						  <main>
-						    <h1>🎟 Prenota il tuo biglietto</h1>
-						    <h2>🔍 Cerca il tuo treno</h2>
-						    <form id="formRicerca">
-						      <input type="text" id="inputPartenza" placeholder="🚉 Da" required>
-						      <input type="text" id="inputArrivo" placeholder="🏁 A" required>
-						      <input type="date" id="inputData" required>
-						      <select id="inputPosti">
-						        <option value="">🚆 Tipo posto</option>
-						        <option>Standard</option>
-						        <option>Comfort</option>
-						        <option>Prima</option>
-						      </select>
-						      <button type="submit">Cerca</button>
-						    </form>
 						
-						    <div id="italotreni"></div>
-						    <div id="riepilogoBiglietto"></div>
-						  </main>
-						  <footer>
-						    &copy; 2025 ItaloTreni. Powered by Massimo.
-						  </footer>
+						  <h2>🚆 Prenota il tuo treno</h2>
+						  <div class="italo-form">
+						    <input type="text" id="da" placeholder="Da (es. Milano)" />
+						    <input type="text" id="a" placeholder="A (es. Roma)" />
+						    <select id="ambiente">
+						      <option value="">Ambiente</option>
+						      <option value="Smart">Smart</option>
+						      <option value="Comfort">Comfort</option>
+						      <option value="Prima">Prima</option>
+						    </select>
+						    <select id="orario">
+						      <option value="">Orario</option>
+						      <option value="mattina">Mattina (00:00–12:00)</option>
+						      <option value="pomeriggio">Pomeriggio (12:00–18:00)</option>
+						      <option value="sera">Sera (18:00–23:59)</option>
+						    </select>
+						    <button onclick="filtraTreni()">Cerca</button>
+						  </div>
+						
+						  <div id="italotreni"></div>
+						  <div id="riepilogo"></div>
 						
 						  <script>
 						    const stripe = Stripe("pk_live_51RcZZKFt7EaY9OTPn4hu3z4ZYfvJLZ1JsqNJhsyKj7T5BBSQCDOGVMDq5YUCkYL5HqsqoE9et25CbUjGZkAdpblO00lNy34est");
+						    let tuttiTreni = [];
 						
-						    function acquista(treno) {
-						      const data = document.getElementById("data-" + treno.codice).value;
-						      const posto = document.getElementById("posto-" + treno.codice).value;
-						      const email = document.getElementById("email-" + treno.codice).value;
+						    fetch("https://script.google.com/macros/s/AKfycbyqKn1lcDJUPsRg_HtKOAlKJMlG4mfYtRPIITzqUdKh/dev")
+						      .then(res => res.json())
+						      .then(data => {
+						        tuttiTreni = data;
+						        mostraTreni(data);
+						      })
+						      .catch(() => {
+						        document.getElementById("italotreni").innerHTML = "<p>❌ Errore nel caricamento treni.</p>";
+						      });
 						
-						      const payload = {
-						        codice: treno.codice,
-						        partenza: treno.partenza,
-						        arrivo: treno.arrivo,
-						        prezzo: treno.prezzo.replace("€", "").replace(",", "."),
-						        data,
-						        posto,
-						        email
-						      };
-						
-						      document.getElementById("riepilogoBiglietto").innerHTML = `
-						        <h3>🎫 Riepilogo Prenotazione</h3>
-						        <p><strong>Da:</strong> ${treno.partenza} → <strong>A:</strong> ${treno.arrivo}</p>
-						        <p><strong>Data:</strong> ${data} | <strong>Posto:</strong> ${posto}</p>
-						        <p><strong>Email:</strong> ${email}</p>
-						        <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${treno.codice}-${data}-${posto}" alt="QR Biglietto" />
-						        <br><br><button id="confermaPagamento">Procedi al pagamento</button>
+						    function mostraTreni(treni) {
+						      let html = `
+						        <div class="italo-row italo-header">
+						          <div class="italo-col">Partenza</div>
+						          <div class="italo-col">Arrivo</div>
+						          <div class="italo-col">Orario</div>
+						          <div class="italo-col">Prezzo</div>
+						          <div class="italo-col">Tipo</div>
+						          <div class="italo-col">Ambiente</div>
+						          <div class="italo-col">Azione</div>
+						        </div>
 						      `;
-						
-						      document.getElementById("confermaPagamento").onclick = () => inviaPrenotazione(payload);
+						      treni.forEach(t => {
+						        html += `
+						          <div class="italo-row">
+						            <div class="italo-col">${t.partenza}</div>
+						            <div class="italo-col">${t.arrivo}</div>
+						            <div class="italo-col">${t.orario}</div>
+						            <div class="italo-col">${t.prezzo}</div>
+						            <div class="italo-col">${t.treno}</div>
+						            <div class="italo-col">${t.ambiente}</div>
+						            <div class="italo-col">
+						              <button class="btn-prenota" onclick='acquista(${JSON.stringify(t)})'>Prenota</button>
+						            </div>
+						          </div>
+						        `;
+						      });
+						      document.getElementById("italotreni").innerHTML = html;
 						    }
 						
-						    function inviaPrenotazione(payload) {
+						    function filtraTreni() {
+						      const da = document.getElementById("da").value.toLowerCase();
+						      const a = document.getElementById("a").value.toLowerCase();
+						      const ambiente = document.getElementById("ambiente").value.toLowerCase();
+						      const fascia = document.getElementById("orario").value;
+						
+						      const filtrati = tuttiTreni.filter(t => {
+						        const ora = parseInt(t.orario.split(":")[0]);
+						        let matchOrario = true;
+						        if (fascia === "mattina") matchOrario = ora < 12;
+						        else if (fascia === "pomeriggio") matchOrario = ora >= 12 && ora < 18;
+						        else if (fascia === "sera") matchOrario = ora >= 18;
+						
+						        return (
+						          t.partenza.toLowerCase().includes(da) &&
+						          t.arrivo.toLowerCase().includes(a) &&
+						          t.ambiente.toLowerCase().includes(ambiente) &&
+						          matchOrario
+						        );
+						      });
+						
+						      mostraTreni(filtrati);
+						    }
+						
+						    function acquista(treno) {
+						      const html = `
+						        <h3>🎫 Riepilogo Prenotazione</h3>
+						        <p><strong>Da:</strong> ${treno.partenza} → <strong>A:</strong> ${treno.arrivo}</p>
+						        <p><strong>Orario:</strong> ${treno.orario} | <strong>Ambiente:</strong> ${treno.ambiente}</p>
+						        <p><strong>Prezzo:</strong> ${treno.prezzo}</p>
+						        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${treno.treno}-${treno.orario}" alt="QR Biglietto">
+						        <br><br>
+						        <button onclick='paga(${JSON.stringify(treno)})'>Procedi al pagamento</button>
+						      `;
+						      document.getElementById("riepilogo").innerHTML = html;
+						    }
+						
+						    function paga(treno) {
+						      const payload = {
+						        codice: treno.treno,
+						        partenza: treno.partenza,
+						        arrivo: treno.arrivo,
+						        orario: treno.orario,
+						        ambiente: treno.ambiente,
+						        prezzo: treno.prezzo.replace("€", "").replace(",", ".")
+						      };
+						
 						      fetch("/.netlify/functions/create-checkout-session", {
 						        method: "POST",
 						        headers: { "Content-Type": "application/json" },
@@ -255,59 +259,8 @@
 						      })
 						      .then(res => res.json())
 						      .then(session => stripe.redirectToCheckout({ sessionId: session.id }))
-						      .catch(err => alert("Errore nel pagamento: " + err.message));
+						      .catch(err => alert("❌ Errore nel pagamento: " + err.message));
 						    }
-						
-						    fetch("https://script.google.com/macros/s/AKfycbyqKn1lcDJUPsRg_HtKOAlKJMlG4mfYtRPIITzqUdKh/dev")
-						      .then(res => res.json())
-						      .then(data => {
-						        let html = `<table><tr>
-						          <th>Partenza</th><th>Arrivo</th><th>Orario</th><th>Prezzo</th>
-						          <th>Data</th><th>Posto</th><th>Email</th><th>Prenota</th></tr>`;
-						
-						        data.forEach(treno => {
-						          const id = treno.codice;
-						          html += `<tr>
-						            <td>${treno.partenza}</td>
-						            <td>${treno.arrivo}</td>
-						            <td>${treno.orario}</td>
-						            <td>${treno.prezzo}</td>
-						            <td><input type="date" id="data-${id}" /></td>
-						            <td><select id="posto-${id}">
-						              <option>1A</option><option>2B</option><option>3C</option>
-						            </select></td>
-						            <td><input type="email" id="email-${id}" placeholder="cliente@email.it" /></td>
-						            <td><button id="btn-${id}">Prenota</button></td>
-						          </tr>`;
-						        });
-						
-						        html += "</table>";
-						        document.getElementById("italotreni").innerHTML = html;
-						
-						        data.forEach(treno => {
-						          document.getElementById("btn-" + treno.codice).addEventListener("click", () => acquista(treno));
-						        });
-						
-						        document.getElementById("formRic
-						        document.getElementById("formRicerca").addEventListener("submit", function(e) {
-						  e.preventDefault();
-						  const partenza = document.getElementById("inputPartenza").value.toLowerCase();
-						  const arrivo = document.getElementById("inputArrivo").value.toLowerCase();
-						  const posto = document.getElementById("inputPosti").value.toLowerCase();
-						
-						  const righe = document.querySelectorAll("#italotreni table tr");
-						
-						  righe.forEach((riga, index) => {
-						    if (index === 0) return;
-						    const testo = riga.textContent.toLowerCase();
-						    const match = testo.includes(partenza) && testo.includes(arrivo) && testo.includes(posto);
-						    riga.style.display = match ? "" : "none";
-						  });
-						});
-						  })
-						  .catch(err => {
-						    document.getElementById("italotreni").innerHTML = "<p>❌ Errore nel caricamento tratte.</p>";
-						  });
 						  </script>
 						</body>
 						</html>
