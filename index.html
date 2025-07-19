@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638884820419396723" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638884890877771164" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -165,13 +165,19 @@
 						    const stripe = Stripe("pk_live_51RcZZKFt7EaY9OTPn4hu3z4ZYfvJLZ1JsqNJhsyKj7T5BBSQCDOGVMDq5YUCkYL5HqsqoE9et25CbUjGZkAdpblO00lNy34est");
 						    let tuttiTreni = [];
 						
-						    fetch("https://script.google.com/macros/s/AKfycbyqKn1lcDJUPsRg_HtKOAlKJMlG4mfYtRPIITzqUdKh/dev")
-						      .then(res => res.json())
+						    const endpoint = "https://script.google.com/macros/s/AKfycbyqKn1lcDJUPsRg_HtKOAlKJMlG4mfYtRPIITzqUdKh/dev";
+						
+						    fetch(endpoint)
+						      .then(res => {
+						        if (!res.ok) throw new Error("Errore HTTP: " + res.status);
+						        return res.json();
+						      })
 						      .then(data => {
 						        tuttiTreni = data;
 						        mostraTreni(data);
 						      })
-						      .catch(() => {
+						      .catch(err => {
+						        console.error("❌ Errore nel caricamento treni:", err);
 						        document.getElementById("italotreni").innerHTML = "<p>❌ Errore nel caricamento treni.</p>";
 						      });
 						
@@ -258,7 +264,10 @@
 						        body: JSON.stringify(payload)
 						      })
 						      .then(res => res.json())
-						      .then(session => stripe.redirectToCheckout({ sessionId: session.id }))
+						      .then(session => {
+						        if (!session.id) throw new Error("Sessione Stripe non valida");
+						        return stripe.redirectToCheckout({ sessionId: session.id });
+						      })
 						      .catch(err => alert("❌ Errore nel pagamento: " + err.message));
 						    }
 						  </script>
