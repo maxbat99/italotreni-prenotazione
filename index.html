@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638885360445595707" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638885464068858209" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -67,8 +67,7 @@
 						</div><div id="imPageRow_2" class="imPageRow">
 						<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden;"><div id="imPageRowGraphics_2"></div></div>
 						</div>
-						<div id="imCell_5" class=""> <div id="imCellStyleGraphics_5"></div><div id="imCellStyleBorders_5"></div><div id="imHTMLObject_05" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!-- Inizio del file index.html -->
-						<!DOCTYPE html>
+						<div id="imCell_5" class=""> <div id="imCellStyleGraphics_5"></div><div id="imCellStyleBorders_5"></div><div id="imHTMLObject_05" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!DOCTYPE html>
 						<html lang="it">
 						<head>
 						  <meta charset="UTF-8" />
@@ -132,7 +131,8 @@
 						  <script>
 						    const stripe = Stripe("pk_live_51RcZZKFt7EaY9OTPn4hu3z4ZYfvJLZ1JsqNJhsyKj7T5BBSQCDOGVMDq5YUCkYL5HqsqoE9et25CbUjGZkAdpblO00lNy34est");
 						    let tuttiTreni = [];
-						    const endpoint = "https://script.google.com/macros/s/AKfycbyqKn1lcDJUPsRg_HtKOAlKJMlG4mfYtRPIITzqUdKh/dev";
+						
+						    const endpoint = "https://script.google.com/macros/s/1JjRiagzza8CwZSZ4Lg-Hp17Oo2acBFJUpegNm2EetJtLvIqepnBDHYYw/dev";
 						
 						    fetch(endpoint)
 						      .then(res => {
@@ -171,7 +171,7 @@
 						            <div class="italo-col">${t.arrivo}</div>
 						            <div class="italo-col">${t.orario}</div>
 						            <div class="italo-col">${t.durata || ""}</div>
-						            <div class="italo-col">${t.prezzo}</div>
+						            <div class="italo-col">€${t.prezzo}</div>
 						            <div class="italo-col">${t.ambiente}</div>
 						            <div class="italo-col">${t.treno}</div>
 						            <div class="italo-col">${t.fermate || ""}</div>
@@ -226,13 +226,9 @@
 						
 						    function paga(treno) {
 						      const payload = {
-						        codice:
-						              const payload = {
 						        codice: treno.codice || "-",
 						        partenza: treno.partenza,
-						        arrivo: treno.arrivo,
-						        orario: treno.orario,
-						        ambiente: treno.ambiente,
+						        arrivo: treno.arrivo
 						        prezzo: treno.prezzo.toString().replace("€", "").replace(",", ".")
 						      };
 						
@@ -246,12 +242,14 @@
 						        if (!session.id) throw new Error("Sessione Stripe non valida");
 						        return stripe.redirectToCheckout({ sessionId: session.id });
 						      })
-						      .catch(err => alert("❌ Errore nel pagamento: " + err.message));
+						      .catch(err => {
+						        console.error("❌ Errore durante il pagamento:", err);
+						        alert("❌ Errore nel pagamento: " + err.message);
+						      });
 						    }
 						  </script>
 						</body>
 						</html>
-						<!-- Fine del file index.html -->
 						</div></div><div id="imCell_2" class=""> <div id="imCellStyleGraphics_2"></div><div id="imCellStyleBorders_2"></div><div id="imObjectImage_02"><div id="imObjectImage_02_container"><img src="images/Immagine-2025-07-06-030855.png" title="" alt="" width="588" height="368" />
 						</div></div></div><div id="imPageRow_3" class="imPageRow">
 						
