@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638884890877771164" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638885360445595707" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -67,7 +67,8 @@
 						</div><div id="imPageRow_2" class="imPageRow">
 						<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden;"><div id="imPageRowGraphics_2"></div></div>
 						</div>
-						<div id="imCell_5" class=""> <div id="imCellStyleGraphics_5"></div><div id="imCellStyleBorders_5"></div><div id="imHTMLObject_05" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!DOCTYPE html>
+						<div id="imCell_5" class=""> <div id="imCellStyleGraphics_5"></div><div id="imCellStyleBorders_5"></div><div id="imHTMLObject_05" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!-- Inizio del file index.html -->
+						<!DOCTYPE html>
 						<html lang="it">
 						<head>
 						  <meta charset="UTF-8" />
@@ -75,65 +76,31 @@
 						  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 						  <script src="https://js.stripe.com/v3/"></script>
 						  <style>
-						    body {
-						      font-family: Arial, sans-serif;
-						      margin: 20px;
-						    }
-						    .italo-form {
-						      display: flex;
-						      flex-wrap: wrap;
-						      gap: 12px;
-						      margin-bottom: 20px;
-						    }
+						    body { font-family: Arial, sans-serif; margin: 20px; }
+						    .italo-form { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
 						    .italo-form input, .italo-form select {
-						      padding: 8px;
-						      flex: 1 1 180px;
-						      border: 1px solid #ccc;
-						      border-radius: 4px;
+						      padding: 8px; flex: 1 1 180px; border: 1px solid #ccc; border-radius: 4px;
 						    }
 						    .italo-form button {
-						      background-color: #B2002E;
-						      color: white;
-						      border: none;
-						      padding: 10px 18px;
-						      border-radius: 4px;
-						      cursor: pointer;
+						      background-color: #B2002E; color: white; border: none;
+						      padding: 10px 18px; border-radius: 4px; cursor: pointer;
 						    }
 						    .italo-row {
-						      display: flex;
-						      flex-wrap: wrap;
-						      padding: 12px 0;
-						      border-bottom: 1px solid #ddd;
-						      align-items: center;
+						      display: flex; flex-wrap: wrap; padding: 12px 0;
+						      border-bottom: 1px solid #ddd; align-items: center;
 						    }
-						    .italo-header {
-						      background-color: #B2002E;
-						      color: white;
-						      font-weight: bold;
-						    }
-						    .italo-col {
-						      flex: 1 1 130px;
-						      padding: 8px;
-						    }
+						    .italo-header { background-color: #B2002E; color: white; font-weight: bold; }
+						    .italo-col { flex: 1 1 130px; padding: 8px; font-size: 14px; }
 						    .btn-prenota {
-						      background-color: #B2002E;
-						      color: white;
-						      padding: 6px 12px;
-						      border: none;
-						      border-radius: 4px;
-						      cursor: pointer;
+						      background-color: #B2002E; color: white;
+						      padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer;
 						    }
 						    #riepilogo {
-						      margin-top: 30px;
-						      padding: 15px;
-						      border: 1px solid #ccc;
-						      border-radius: 6px;
+						      margin-top: 30px; padding: 15px;
+						      border: 1px solid #ccc; border-radius: 6px;
 						    }
 						    @media screen and (max-width: 768px) {
-						      .italo-row {
-						        flex-direction: column;
-						        align-items: flex-start;
-						      }
+						      .italo-row { flex-direction: column; align-items: flex-start; }
 						    }
 						  </style>
 						</head>
@@ -147,7 +114,8 @@
 						      <option value="">Ambiente</option>
 						      <option value="Smart">Smart</option>
 						      <option value="Comfort">Comfort</option>
-						      <option value="Prima">Prima</option>
+						      <option value="Smart+Bus">Smart+Bus</option>
+						      <option value="Comfort+Bus">Comfort+Bus</option>
 						    </select>
 						    <select id="orario">
 						      <option value="">Orario</option>
@@ -164,7 +132,6 @@
 						  <script>
 						    const stripe = Stripe("pk_live_51RcZZKFt7EaY9OTPn4hu3z4ZYfvJLZ1JsqNJhsyKj7T5BBSQCDOGVMDq5YUCkYL5HqsqoE9et25CbUjGZkAdpblO00lNy34est");
 						    let tuttiTreni = [];
-						
 						    const endpoint = "https://script.google.com/macros/s/AKfycbyqKn1lcDJUPsRg_HtKOAlKJMlG4mfYtRPIITzqUdKh/dev";
 						
 						    fetch(endpoint)
@@ -184,24 +151,30 @@
 						    function mostraTreni(treni) {
 						      let html = `
 						        <div class="italo-row italo-header">
+						          <div class="italo-col">Codice</div>
 						          <div class="italo-col">Partenza</div>
 						          <div class="italo-col">Arrivo</div>
 						          <div class="italo-col">Orario</div>
+						          <div class="italo-col">Durata</div>
 						          <div class="italo-col">Prezzo</div>
-						          <div class="italo-col">Tipo</div>
 						          <div class="italo-col">Ambiente</div>
+						          <div class="italo-col">Treno</div>
+						          <div class="italo-col">Fermate</div>
 						          <div class="italo-col">Azione</div>
 						        </div>
 						      `;
 						      treni.forEach(t => {
 						        html += `
 						          <div class="italo-row">
+						            <div class="italo-col">${t.codice || ""}</div>
 						            <div class="italo-col">${t.partenza}</div>
 						            <div class="italo-col">${t.arrivo}</div>
 						            <div class="italo-col">${t.orario}</div>
+						            <div class="italo-col">${t.durata || ""}</div>
 						            <div class="italo-col">${t.prezzo}</div>
-						            <div class="italo-col">${t.treno}</div>
 						            <div class="italo-col">${t.ambiente}</div>
+						            <div class="italo-col">${t.treno}</div>
+						            <div class="italo-col">${t.fermate || ""}</div>
 						            <div class="italo-col">
 						              <button class="btn-prenota" onclick='acquista(${JSON.stringify(t)})'>Prenota</button>
 						            </div>
@@ -232,16 +205,19 @@
 						        );
 						      });
 						
-						      mostraTreni(filtrati);
+						      mostraTreni(filtrati.length ? filtrati : []);
 						    }
 						
 						    function acquista(treno) {
 						      const html = `
 						        <h3>🎫 Riepilogo Prenotazione</h3>
+						        <p><strong>Codice:</strong> ${treno.codice || "-"}</p>
 						        <p><strong>Da:</strong> ${treno.partenza} → <strong>A:</strong> ${treno.arrivo}</p>
-						        <p><strong>Orario:</strong> ${treno.orario} | <strong>Ambiente:</strong> ${treno.ambiente}</p>
-						        <p><strong>Prezzo:</strong> ${treno.prezzo}</p>
-						        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${treno.treno}-${treno.orario}" alt="QR Biglietto">
+						        <p><strong>Orario:</strong> ${treno.orario} | <strong>Durata:</strong> ${treno.durata || "-"}</p>
+						        <p><strong>Ambiente:</strong> ${treno.ambiente} | <strong>Treno:</strong> ${treno.treno}</p>
+						        <p><strong>Prezzo:</strong> €${treno.prezzo}</p>
+						        <p><strong>Fermate:</strong> ${treno.fermate || "-"}</p>
+						        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${treno.codice}-${treno.orario}" alt="QR Biglietto">
 						        <br><br>
 						        <button onclick='paga(${JSON.stringify(treno)})'>Procedi al pagamento</button>
 						      `;
@@ -250,12 +226,14 @@
 						
 						    function paga(treno) {
 						      const payload = {
-						        codice: treno.treno,
+						        codice:
+						              const payload = {
+						        codice: treno.codice || "-",
 						        partenza: treno.partenza,
 						        arrivo: treno.arrivo,
 						        orario: treno.orario,
 						        ambiente: treno.ambiente,
-						        prezzo: treno.prezzo.replace("€", "").replace(",", ".")
+						        prezzo: treno.prezzo.toString().replace("€", "").replace(",", ".")
 						      };
 						
 						      fetch("/.netlify/functions/create-checkout-session", {
@@ -273,6 +251,7 @@
 						  </script>
 						</body>
 						</html>
+						<!-- Fine del file index.html -->
 						</div></div><div id="imCell_2" class=""> <div id="imCellStyleGraphics_2"></div><div id="imCellStyleBorders_2"></div><div id="imObjectImage_02"><div id="imObjectImage_02_container"><img src="images/Immagine-2025-07-06-030855.png" title="" alt="" width="588" height="368" />
 						</div></div></div><div id="imPageRow_3" class="imPageRow">
 						
