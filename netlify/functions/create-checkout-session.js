@@ -17,8 +17,8 @@ exports.handler = async (event) => {
         quantity: 1
       }],
       mode: "payment",
-      success_url: "https://italotreni.netlify.app/successo",
-      cancel_url: "https://italotreni.netlify.app/errore"
+      success_url: process.env.SUCCESS_URL,
+      cancel_url: process.env.CANCEL_URL
     });
 
     return {
