@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638885622811551206" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638886259193973286" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -122,61 +122,52 @@
 						      <option value="pomeriggio">Pomeriggio (12:00–18:00)</option>
 						      <option value="sera">Sera (18:00–23:59)</option>
 						    </select>
+						    <input type="email" id="email" placeholder="La tua email" value="battiloromassimo@virgilio.it" />
 						    <button onclick="filtraTreni()">Cerca</button>
 						  </div>
 						
-						  <div id="italotreni"></div>
+						  <div id="italotreni" style="display: none;"></div>
 						  <div id="riepilogo"></div>
 						
 						  <script>
 						    const stripe = Stripe("pk_live_51RcZZKFt7EaY9OTPn4hu3z4ZYfvJLZ1JsqNJhsyKj7T5BBSQCDOGVMDq5YUCkYL5HqsqoE9et25CbUjGZkAdpblO00lNy34est");
+						    const endpoint = "https://script.google.com/macros/s/AKfycbyXaSq3zvubSmNLLhCGY-hDvCmJBZ0GxGmJjx_UB7M_7a68_WKcKYjfweQDueuZi7bIVw/exec";
 						    let tuttiTreni = [];
-						                      https://script.google.com/macros/s/AKfycbyXaSq3zvubSmNLLhCGY-hDvCmJBZ0GxGmJjx_UB7M_7a68_WKcKYjfweQDueuZi7bIVw/exec
-						    const endpoint = "https://script.google.com/macros/s/1JjRiagzza8CwZSZ4Lg-Hp17Oo2acBFJUpegNm2EetJtLvIqepnBDHYYw/dev";
 						
-						    fetch(endpoint)
-						      .then(res => {
-						        if (!res.ok) throw new Error("Errore HTTP: " + res.status);
-						        return res.json();
-						      })
-						      .then(data => {
-						        tuttiTreni = data;
-						        mostraTreni(data);
-						      })
-						      .catch(err => {
-						        console.error("❌ Errore nel caricamento treni:", err);
-						        document.getElementById("italotreni").innerHTML = "<p>❌ Errore nel caricamento treni.</p>";
-						      });
+						    window.onload = () => {
+						      fetch(endpoint)
+						        .then(res => res.json())
+						        .then(data => { tuttiTreni = data; })
+						        .catch(err => {
+						          console.error("❌ Errore nel caricamento:", err);
+						        });
+						    };
 						
-						    function mostraTreni(treni) {
+						    function mostraTreni(lista) {
 						      let html = `
 						        <div class="italo-row italo-header">
 						          <div class="italo-col">Codice</div>
 						          <div class="italo-col">Partenza</div>
 						          <div class="italo-col">Arrivo</div>
 						          <div class="italo-col">Orario</div>
-						          <div class="italo-col">Durata</div>
 						          <div class="italo-col">Prezzo</div>
 						          <div class="italo-col">Ambiente</div>
 						          <div class="italo-col">Treno</div>
-						          <div class="italo-col">Fermate</div>
 						          <div class="italo-col">Azione</div>
 						        </div>
 						      `;
-						      treni.forEach(t => {
+						      lista.forEach(treno => {
 						        html += `
 						          <div class="italo-row">
-						            <div class="italo-col">${t.codice || ""}</div>
-						            <div class="italo-col">${t.partenza}</div>
-						            <div class="italo-col">${t.arrivo}</div>
-						            <div class="italo-col">${t.orario}</div>
-						            <div class="italo-col">${t.durata || ""}</div>
-						            <div class="italo-col">€${t.prezzo}</div>
-						            <div class="italo-col">${t.ambiente}</div>
-						            <div class="italo-col">${t.treno}</div>
-						            <div class="italo-col">${t.fermate || ""}</div>
+						            <div class="italo-col">${treno.codice}</div>
+						            <div class="italo-col">${treno.partenza}</div>
+						            <div class="italo-col">${treno.arrivo}</div>
+						            <div class="italo-col">${treno.orario}</div>
+						            <div class="italo-col">€${treno.prezzo}</div>
+						            <div class="italo-col">${treno.ambiente}</div>
+						            <div class="italo-col">${treno.treno}</div>
 						            <div class="italo-col">
-						              <button class="btn-prenota" onclick='acquista(${JSON.stringify(t)})'>Prenota</button>
+						              <button class="btn-prenota" onclick='acquista(${JSON.stringify(treno)})'>Prenota</button>
 						            </div>
 						          </div>
 						        `;
@@ -191,45 +182,65 @@
 						      const fascia = document.getElementById("orario").value;
 						
 						      const filtrati = tuttiTreni.filter(t => {
-						        const ora = parseInt(t.orario.split(":")[0]);
+						        const ora = parseInt(t.orario?.split(":")[0]) || 0;
 						        let matchOrario = true;
 						        if (fascia === "mattina") matchOrario = ora < 12;
 						        else if (fascia === "pomeriggio") matchOrario = ora >= 12 && ora < 18;
 						        else if (fascia === "sera") matchOrario = ora >= 18;
 						
 						        return (
-						          t.partenza.toLowerCase().includes(da) &&
-						          t.arrivo.toLowerCase().includes(a) &&
-						          t.ambiente.toLowerCase().includes(ambiente) &&
+						          t.partenza?.toLowerCase().includes(da) &&
+						          t.arrivo?.toLowerCase().includes(a) &&
+						          t.ambiente?.toLowerCase().includes(ambiente) &&
 						          matchOrario
 						        );
 						      });
 						
-						      mostraTreni(filtrati.length ? filtrati : []);
+						      document.getElementById("italotreni").style.display = "block";
+						
+						      if (filtrati.length === 0) {
+						        document.getElementById("italotreni").innerHTML = `
+						          <div style="padding: 30px; text-align: center; color: #a00028; font-weight: bold;">
+						            🚫 Nessun treno trovato con i criteri selezionati.<br>
+						            🔍 Prova a modificare la partenza, l’orario o l’ambiente.<br>
+						            🕘 I treni vengono aggiornati dinamicamente.
+						          </div>
+						        `;
+						      } else {
+						        mostraTreni(filtrati);
+						      }
 						    }
 						
 						    function acquista(treno) {
 						      const html = `
 						        <h3>🎫 Riepilogo Prenotazione</h3>
-						        <p><strong>Codice:</strong> ${treno.codice || "-"}</p>
+						        <p><strong>Codice:</strong> ${treno.codice}</p>
 						        <p><strong>Da:</strong> ${treno.partenza} → <strong>A:</strong> ${treno.arrivo}</p>
-						        <p><strong>Orario:</strong> ${treno.orario} | <strong>Durata:</strong> ${treno.durata || "-"}</p>
-						        <p><strong>Ambiente:</strong> ${treno.ambiente} | <strong>Treno:</strong> ${treno.treno}</p>
+						        <p><strong>Orario:</strong> ${treno.orario}</p>
+						        <p><strong>Ambiente:</strong> ${treno.ambiente}</p>
 						        <p><strong>Prezzo:</strong> €${treno.prezzo}</p>
-						        <p><strong>Fermate:</strong> ${treno.fermate || "-"}</p>
-						        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${treno.codice}-${treno.orario}" alt="QR Biglietto">
+						        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${treno.codice}-${treno.orario}" alt="QR Biglietto" />
 						        <br><br>
-						        <button onclick='paga(${JSON.stringify(treno)})'>Procedi al pagamento</button>
+						                <button onclick='paga(${JSON.stringify(treno)})'>Procedi al pagamento</button>
 						      `;
 						      document.getElementById("riepilogo").innerHTML = html;
 						    }
 						
 						    function paga(treno) {
+						      const email = document.getElementById("email").value;
+						      if (!email) {
+						        alert("📬 Inserisci una email valida prima di procedere");
+						        return;
+						      }
+						
 						      const payload = {
-						        codice: treno.codice || "-",
+						        codice: treno.codice,
 						        partenza: treno.partenza,
-						        arrivo: treno.arrivo
-						        prezzo: treno.prezzo.toString().replace("€", "").replace(",", ".")
+						        arrivo: treno.arrivo,
+						        prezzo: treno.prezzo.toString().replace("€", "").replace(",", "."),
+						        email: email,
+						        orario: treno.orario,
+						        ambiente: treno.ambiente
 						      };
 						
 						      fetch("/.netlify/functions/create-checkout-session", {
@@ -240,16 +251,17 @@
 						      .then(res => res.json())
 						      .then(session => {
 						        if (!session.id) throw new Error("Sessione Stripe non valida");
-						        return stripe.redirectToCheckout({ sessionId: session.id });
+						        stripe.redirectToCheckout({ sessionId: session.id });
 						      })
 						      .catch(err => {
-						        console.error("❌ Errore durante il pagamento:", err);
-						        alert("❌ Errore nel pagamento: " + err.message);
+						        console.error("❌ Errore pagamento:", err);
+						        alert("❌ Pagamento fallito: " + err.message);
 						      });
 						    }
 						  </script>
 						</body>
 						</html>
+						
 						</div></div><div id="imCell_2" class=""> <div id="imCellStyleGraphics_2"></div><div id="imCellStyleBorders_2"></div><div id="imObjectImage_02"><div id="imObjectImage_02_container"><img src="images/Immagine-2025-07-06-030855.png" title="" alt="" width="588" height="368" />
 						</div></div></div><div id="imPageRow_3" class="imPageRow">
 						
