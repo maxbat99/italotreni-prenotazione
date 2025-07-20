@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638886318725440661" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638886336291622910" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -124,7 +124,7 @@
 						      <option value="pomeriggio">Pomeriggio (12:00–18:00)</option>
 						      <option value="sera">Sera (18:00–23:59)</option>
 						    </select>
-						    <input type="email" id="email" placeholder="La tua email" value="battiloromassimo@virgilio.it" />
+						    <input type="email" id="email" required placeholder="La tua email" value="battiloromassimo@virgilio.it" />
 						    <button onclick="filtraTreni()">Cerca</button>
 						  </div>
 						
@@ -214,6 +214,10 @@
 						
 						    function acquista(treno) {
 						      const email = document.getElementById("email").value;
+						      if (!email) {
+						        alert("📬 Inserisci una email valida per vedere il riepilogo");
+						        return;
+						      }
 						
 						      const html = `
 						        <h3>🎫 Riepilogo Prenotazione</h3>
@@ -241,7 +245,7 @@
 						        codice: treno.codice,
 						        partenza: treno.partenza,
 						        arrivo: treno.arrivo,
-						        prezzo: treno.prezzo.toString().replace("€", "").replace(",", "."),
+						        prezzo: Number(treno.prezzo), // ✅ Conversione corretta per Stripe
 						        email: email,
 						        orario: treno.orario,
 						        ambiente: treno.ambiente
