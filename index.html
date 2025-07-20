@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638886309241183090" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638886318725440661" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -89,12 +89,8 @@
 						      border-bottom: 1px solid #ddd; align-items: center;
 						      background: white;
 						    }
-						    .italo-header {
-						      background-color: #B2002E; color: white; font-weight: bold;
-						    }
-						    .italo-col {
-						      flex: 1 1 130px; padding: 8px; font-size: 14px;
-						    }
+						    .italo-header { background-color: #B2002E; color: white; font-weight: bold; }
+						    .italo-col { flex: 1 1 130px; padding: 8px; font-size: 14px; }
 						    .btn-prenota {
 						      background-color: #B2002E; color: white;
 						      padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer;
@@ -236,13 +232,35 @@
 						
 						    function paga(treno) {
 						      const email = document.getElementById("email").value;
-						            if (!email) {
-						        alert("📬 Inserisci una email valida prima di procedere");
+						      if (!email) {
+						                alert("📬 Inserisci una email valida prima di procedere");
 						        return;
 						      }
 						
-						      // Link diretto Stripe statico
-						      window.location.href = "https://buy.stripe.com/cNi5kDb7Bgnb68FbS70kE03";
+						      const payload = {
+						        codice: treno.codice,
+						        partenza: treno.partenza,
+						        arrivo: treno.arrivo,
+						        prezzo: treno.prezzo.toString().replace("€", "").replace(",", "."),
+						        email: email,
+						        orario: treno.orario,
+						        ambiente: treno.ambiente
+						      };
+						
+						      fetch("/.netlify/functions/create-checkout-session", {
+						        method: "POST",
+						        headers: { "Content-Type": "application/json" },
+						        body: JSON.stringify(payload)
+						      })
+						      .then(res => res.json())
+						      .then(session => {
+						        if (!session.url) throw new Error("URL di pagamento non ricevuto");
+						        window.location.href = session.url;
+						      })
+						      .catch(err => {
+						        console.error("❌ Errore pagamento:", err);
+						        alert("❌ Pagamento fallito: " + err.message);
+						      });
 						    }
 						  </script>
 						</body>

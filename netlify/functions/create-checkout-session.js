@@ -69,10 +69,10 @@ exports.handler = async (event) => {
       `
     });
 
-    // ✅ Ritorna l'ID della sessione Stripe
+    // ✅ Ritorna il link diretto della sessione Stripe
     return {
       statusCode: 200,
-      body: JSON.stringify({ id: session.id })
+      body: JSON.stringify({ url: session.url }) // 🔗 Redirect diretto dal frontend
     };
   } catch (err) {
     console.error("❌ Errore:", err);
