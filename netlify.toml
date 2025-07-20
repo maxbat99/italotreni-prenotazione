@@ -1,5 +1,0 @@
-[build]
-  functions = "netlify/functions"
-
-[template.environment]
-  STRIPE_SECRET_KEY = "INSERISCI_IL_VALORE_IN_NETLIFY"
