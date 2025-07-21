@@ -10,18 +10,18 @@ body { margin: 0; padding: 0; text-align: left; height: 100%; }
 #imPageToTop { position: fixed; bottom: 30px; right: 30px; z-index: 10500; display: none; opacity: 0.75 }
 #imPageToTop:hover {opacity: 1; cursor: pointer; }
 @media (min-width: 1150.0px) {
-		#imPageExtContainer { background-image: none; background-color: transparent; }
+		#imPageExtContainer { background-image: url('Immagine-2025-06-30-033133.png'); background-position: center top; background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-color: transparent; }
 		#imPage { padding-top: 0px; padding-bottom: 0px; min-width: 1150px; }
-		#imHeaderBg { height: 100px; background-image: none; background-color: transparent; }
-		#imHeader { background-image: none; background-color: transparent; }
-		#imHeaderObjects { margin-left: auto; margin-right: auto; position: relative; height: 100px; width:1150px; }
+		#imHeaderBg { height: 81px; background-image: none; background-color: transparent; }
+		#imHeader { background-image: none; background-color: rgba(166, 28, 0, 1); }
+		#imHeaderObjects { margin-left: auto; margin-right: auto; position: relative; height: 69px; width:1150px; }
 		#imContent { align-self: start; padding: 0px 0 0px 0; }
-		#imContentGraphics { min-height: 600px; background-image: none; background-color: transparent; }
+		#imContentGraphics { min-height: 577px; background-image: none; background-color: transparent; }
 		#imFooterBg { height: 100px; background-image: none; background-color: transparent; }
-		#imFooter { background-image: none; background-color: transparent; }
+		#imFooter { background-image: none; background-color: rgba(166, 28, 0, 1); }
 		#imFooterObjects { margin-left: auto; margin-right: auto; position: relative; height: 100px; width:1150px; }
-		#imSideBar { background-image: none; background-color: transparent; overflow: visible; zoom: 1; z-index: 200; }
-		#imSideBarObjects { position: relative; height: 600px; }
+		#imSideBar { background-image: none; background-color: rgba(211, 218, 220, 1); overflow: visible; zoom: 1; z-index: 200; }
+		#imSideBarObjects { position: relative; height: 577px; }
 		#imStickyBarContainer { top: 0; left: 0; right: 0; margin: auto; width: 100%; height: 70px; box-sizing: border-box; z-index: 10301; }
 		#imStickyBarGraphics { top: 0; left: 0; right: 0; margin: auto; width: 100%; height: 70px; box-sizing: border-box; background-image: none; background-color: transparent; position: absolute; }
 		#imStickyBar { position: relative; top: 0; left: 0; margin: auto; width: 1150px }

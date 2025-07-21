@@ -1,4 +1,4 @@
-#imPage { display: grid; grid-template-columns: minmax(0, 1fr) 1150px minmax(0, 1fr); grid-template-rows: 100px auto 100px; }
+#imPage { display: grid; grid-template-columns: minmax(0, 1fr) 1150px minmax(0, 1fr); grid-template-rows: 69px auto 100px; }
 #imHeader { display: block; grid-column: 1 / 4; grid-row: 1 / 2; }
 #imFooter { display: block; grid-column: 1 / 4; grid-row: 3 / 4; }
 #imSideBar { display: none; }
