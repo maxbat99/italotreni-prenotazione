@@ -13,12 +13,12 @@ body { margin: 0; padding: 0; text-align: left; height: 100%; }
 		#imPageExtContainer { background-image: none; background-color: transparent; }
 		#imPage { padding-top: 0px; padding-bottom: 0px; min-width: 1150px; }
 		#imHeaderBg { height: 100px; background-image: none; background-color: transparent; }
-		#imHeader { background-image: none; background-color: rgba(152, 0, 0, 1); }
+		#imHeader { background-image: none; background-color: transparent; }
 		#imHeaderObjects { margin-left: auto; margin-right: auto; position: relative; height: 100px; width:1150px; }
 		#imContent { align-self: start; padding: 0px 0 0px 0; }
 		#imContentGraphics { min-height: 600px; background-image: none; background-color: transparent; }
 		#imFooterBg { height: 100px; background-image: none; background-color: transparent; }
-		#imFooter { background-image: none; background-color: rgba(152, 0, 0, 1); }
+		#imFooter { background-image: none; background-color: transparent; }
 		#imFooterObjects { margin-left: auto; margin-right: auto; position: relative; height: 100px; width:1150px; }
 		#imSideBar { background-image: none; background-color: transparent; overflow: visible; zoom: 1; z-index: 200; }
 		#imSideBarObjects { position: relative; height: 600px; }
