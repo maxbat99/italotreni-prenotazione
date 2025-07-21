@@ -8,7 +8,6 @@ exports.handler = async (event) => {
     // 🔍 Validazione campi ricevuti
     const { codice, partenza, arrivo, prezzo, email, orario, ambiente } = data;
 
-    // Validazione base
     if (!codice || !partenza || !arrivo || !prezzo || !email) {
       return {
         statusCode: 400,
@@ -16,7 +15,6 @@ exports.handler = async (event) => {
       };
     }
 
-    // Validazione prezzo
     const prezzoCentesimi = Math.round(parseFloat(prezzo) * 100);
     if (isNaN(prezzoCentesimi) || prezzoCentesimi <= 0) {
       return {
@@ -25,7 +23,6 @@ exports.handler = async (event) => {
       };
     }
 
-    // Validazione email (formato semplice)
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
       return {
@@ -38,8 +35,8 @@ exports.handler = async (event) => {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
-      success_url: "https://italotreni.netlify.app/successo.html",
-      cancel_url: "https://italotreni.netlify.app/errore.html",
+      success_url: "https://genuine-platypus-99089c.netlify.app/successo.html",
+      cancel_url: "https://genuine-platypus-99089c.netlify.app/errore.html",
       line_items: [
         {
           price_data: {
