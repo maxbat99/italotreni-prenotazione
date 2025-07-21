@@ -22,6 +22,13 @@ exports.handler = async (event) => {
 
     const { codice, partenza, arrivo, orario, ambiente, prezzo, email } = dati;
 
+    if (!email || !email.includes("@")) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "❌ Email non valida" })
+      };
+    }
+
     const prezzoCentesimi = Math.round(parseFloat(prezzo) * 100);
     if (isNaN(prezzoCentesimi) || prezzoCentesimi <= 0) {
       return {
@@ -50,7 +57,10 @@ exports.handler = async (event) => {
         }],
         customer_email: email
       });
+
+      console.log("✅ Session Stripe:", session);
     } catch (stripeErr) {
+      console.error("❌ Stripe error:", stripeErr.message);
       return {
         statusCode: 500,
         body: JSON.stringify({ error: "❌ Errore Stripe: " + stripeErr.message })
@@ -104,7 +114,7 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ url: session.url })
+      body: JSON.stringify({ id: session.id, url: session.url })
     };
 
   } catch (err) {
