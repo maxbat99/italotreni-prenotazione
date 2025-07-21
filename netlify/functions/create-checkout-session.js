@@ -45,11 +45,11 @@ exports.handler = async (event) => {
 
     // ✉️ Email al cliente
     await transporter.sendMail({
-      from: `"Italo Bob - Biglietteria" <${process.env.NOTIFY_EMAIL}>`,
+      from: `"italotreni - Biglietteria" <${process.env.NOTIFY_EMAIL}>`,
       to: email,
       subject: `🎫 Prenotazione treno ${codice} confermata`,
       html: `
-        <h2>Grazie per aver prenotato con Italo Bob!</h2>
+        <h2>Grazie per aver prenotato con italotreni!</h2>
         <p>Ecco i dettagli del tuo viaggio:</p>
         <ul>
           <li><strong>Codice:</strong> ${codice}</li>
@@ -64,7 +64,7 @@ exports.handler = async (event) => {
 
     // ✉️ Notifica interna (opzionale)
     await transporter.sendMail({
-      from: `"Italo Bob - Notifica" <${process.env.NOTIFY_EMAIL}>`,
+      from: `"italotreni - Notifica" <${process.env.NOTIFY_EMAIL}>`,
       to: process.env.NOTIFY_EMAIL,
       subject: `📬 Nuova prenotazione: ${codice}`,
       text: `Nuovo biglietto venduto a ${email} per il treno ${codice}`
