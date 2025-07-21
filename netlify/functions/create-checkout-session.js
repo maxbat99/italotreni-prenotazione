@@ -80,7 +80,7 @@ exports.handler = async (event) => {
     console.error("❌ Errore backend:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "❌ Errore interno nel server di prenotazione" })
+      body: JSON.stringify({ Errore backend: " + err.message })
     };
   }
 };
