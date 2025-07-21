@@ -77,10 +77,10 @@ exports.handler = async (event) => {
     };
 
   } catch (err) {
-    console.error("❌ Errore backend:", err);
+    console.error("❌ Errore backend:", err.message);
     return {
       statusCode: 500,
-      body: JSON.stringify({ Errore backend: " + err.message })
+      body: JSON.stringify({ error: "❌ Errore backend: " + err.message })
     };
   }
 };
