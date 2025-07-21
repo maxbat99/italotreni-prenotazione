@@ -3,7 +3,6 @@ const nodemailer = require("nodemailer");
 
 exports.handler = async (event) => {
   try {
-    // 🔍 Verifica che body sia presente
     if (!event.body) {
       return {
         statusCode: 400,
@@ -11,7 +10,6 @@ exports.handler = async (event) => {
       };
     }
 
-    // 🧪 Parsing sicuro
     let dati;
     try {
       dati = JSON.parse(event.body);
@@ -24,7 +22,6 @@ exports.handler = async (event) => {
 
     const { codice, partenza, arrivo, orario, ambiente, prezzo, email } = dati;
 
-    // 💳 Validazione prezzo
     const prezzoCentesimi = Math.round(parseFloat(prezzo) * 100);
     if (isNaN(prezzoCentesimi) || prezzoCentesimi <= 0) {
       return {
@@ -33,7 +30,6 @@ exports.handler = async (event) => {
       };
     }
 
-    // ✅ Crea sessione Stripe
     let session;
     try {
       session = await stripe.checkout.sessions.create({
@@ -61,7 +57,6 @@ exports.handler = async (event) => {
       };
     }
 
-    // 📬 Invio email (non blocca il pagamento se fallisce)
     try {
       const transporter = nodemailer.createTransport({
         service: "gmail",
@@ -71,25 +66,31 @@ exports.handler = async (event) => {
         }
       });
 
-      // ✉️ Email al cliente
       await transporter.sendMail({
         from: `"italotreni - Biglietteria" <${process.env.NOTIFY_EMAIL}>`,
         to: email,
-        subject: `🎫 Prenotazione treno ${codice} confermata`,
+        subject: `🎫 Biglietto treno ${codice} confermato`,
         html: `
-          <h2>Grazie per aver prenotato con italotreni!</h2>
-          <ul>
-            <li><strong>Codice:</strong> ${codice}</li>
-            <li><strong>Da:</strong> ${partenza} → <strong>A:</strong> ${arrivo}</li>
-            <li><strong>Orario:</strong> ${orario}</li>
-            <li><strong>Ambiente:</strong> ${ambiente}</li>
-            <li><strong>Prezzo:</strong> €${prezzo}</li>
-          </ul>
-          <p>Riceverai un QR code alla conferma del pagamento.</p>
+          <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ccc">
+            <h2 style="color: #d90000;">🎫 Biglietto treno confermato</h2>
+            <p>Grazie per aver prenotato con <strong>italotreni</strong>!</p>
+            <hr />
+            <p><strong>Codice treno:</strong> ${codice}</p>
+            <p><strong>Partenza:</strong> ${partenza}</p>
+            <p><strong>Arrivo:</strong> ${arrivo}</p>
+            <p><strong>Orario:</strong> ${orario}</p>
+            <p><strong>Ambiente:</strong> ${ambiente}</p>
+            <p><strong>Prezzo:</strong> €${prezzo}</p>
+            <hr />
+            <p><strong>📲 QR Code del biglietto:</strong></p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=italotreni:${codice}" alt="QR code biglietto" />
+            <p style="font-size: 0.9em; color: #555">Mostra questo QR alla partenza o stampalo per sicurezza.</p>
+            <br />
+            <p style="font-size: 0.9em;">Per assistenza: <a href="mailto:italotreni.booking@gmail.com">italotreni.booking@gmail.com</a></p>
+          </div>
         `
       });
 
-      // ✉️ Notifica interna
       await transporter.sendMail({
         from: `"italotreni - Notifica" <${process.env.NOTIFY_EMAIL}>`,
         to: process.env.NOTIFY_EMAIL,
@@ -99,10 +100,8 @@ exports.handler = async (event) => {
 
     } catch (emailErr) {
       console.error("⚠️ Email fallita:", emailErr.message);
-      // Non blocchiamo il pagamento per errore email
     }
 
-    // 🔗 Restituisci l’URL di pagamento
     return {
       statusCode: 200,
       body: JSON.stringify({ url: session.url })
