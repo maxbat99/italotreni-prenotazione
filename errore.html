@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>❌ Pagamento annullato</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdf2f2;
+      color: #5a0000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    .cross {
+      font-size: 80px;
+      color: #B2002E;
+      animation: shake 0.4s ease;
+    }
+    h2 {
+      color: #B2002E;
+      margin-bottom: 10px;
+    }
+    .message {
+      max-width: 500px;
+      text-align: center;
+      font-size: 18px;
+    }
+    .btn {
+      margin-top: 25px;
+      padding: 12px 24px;
+      background-color: #555;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    @keyframes shake {
+      0% { transform: rotate(-8deg); }
+      50% { transform: rotate(8deg); }
+      100% { transform: rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="cross">❌</div>
+  <h2>Pagamento annullato</h2>
+  <p class="message">
+    La prenotazione è stata interrotta o annullata.<br>
+    Nessun importo è stato addebitato.<br>
+    Se hai bisogno di assistenza, scrivi a <a href="mailto:jonathanbreeen@gmail.com">jonathanbreeen@gmail.com</a>.
+  </p>
+  <button class="btn" onclick="window.location.href='index.html'">🔙 Ritorna alla prenotazione</button>
+</body>
+</html>
