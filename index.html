@@ -1,382 +1,203 @@
-<link rel="stylesheet" href="style/style.css" />
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Italo Bob Prenotazione</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f7f7f7; }
+    h2 { color: #B2002E; }
+    .italo-form { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+    .italo-form input, .italo-form select {
+      padding: 8px; flex: 1 1 180px; border: 1px solid #ccc; border-radius: 4px;
+    }
+    .italo-form button {
+      background-color: #B2002E; color: white; border: none;
+      padding: 10px 18px; border-radius: 4px; cursor: pointer;
+    }
+    .italo-row {
+      display: flex; flex-wrap: wrap; padding: 12px 0;
+      border-bottom: 1px solid #ddd; align-items: center;
+      background: white;
+    }
+    .italo-header { background-color: #B2002E; color: white; font-weight: bold; }
+    .italo-col { flex: 1 1 130px; padding: 8px; font-size: 14px; }
+    .btn-prenota {
+      background-color: #B2002E; color: white;
+      padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer;
+    }
+    #riepilogo {
+      margin-top: 30px; padding: 15px;
+      border: 1px solid #ccc; border-radius: 6px;
+      background-color: white;
+    }
+    @media screen and (max-width: 768px) {
+      .italo-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
 
-<!DOCTYPE html><!-- HTML5 -->
-<html prefix="og: http://ogp.me/ns#" lang="it-IT" dir="ltr">
-	<head>
-		<link rel="stylesheet" href="style/style.css" />
-		<title>italo </title>
-		<meta charset="utf-8" />
-		<!--[if IE]><meta http-equiv="ImageToolbar" content="False" /><![endif]-->
-		<meta name="generator" content="Incomedia WebSite X5 Evo 2024.4.11 - www.websitex5.com" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link rel="stylesheet" href="style/reset.css?2024-4-11-0" media="screen,print" />
-		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
-		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
-		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638886515248798001" media="screen,print" />
-		<script src="res/jquery.js?2024-4-11-0"></script>
-		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
-		<script>
-			window.onload = function(){ checkBrowserCompatibility('Il Browser che stai utilizzando non supporta le funzionalità richieste per visualizzare questo Sito.','Il Browser che stai utilizzando potrebbe non supportare le funzionalità richieste per visualizzare questo Sito.','[1]Aggiorna il tuo browser[/1] oppure [2]procedi ugualmente[/2].','http://outdatedbrowser.com/'); };
-			x5engine.utils.currentPagePath = 'index.html';
-			x5engine.boot.push(function () { x5engine.imPageToTop.initializeButton({}); });
-		</script>
-		
-		<link rel="stylesheet" href="style/style.css" />
-		
-	</head>
-	<body>
-		<div id="imPageExtContainer">
-			<div id="imPageIntContainer">
-				<div id="imHeaderBg"></div>
-				<div id="imFooterBg"></div>
-				<div id="imPage">
-					<header id="imHeader">
-						<h1 class="imHidden">italo </h1>
-						<div id="imHeaderObjects"><div id="imHeader_imObjectImage_01_wrapper" class="template-object-wrapper"><div id="imHeader_imObjectImage_01"><div id="imHeader_imObjectImage_01_container"><img src="images/Immagine-2025-06-25-193403.png" title="" alt="" width="311" height="61" />
-</div></div></div><div id="imHeader_imObjectImage_02_wrapper" class="template-object-wrapper"><div id="imHeader_imObjectImage_02"><div id="imHeader_imObjectImage_02_container"><img src="images/Immagine-2025-06-29-202948_wl3mvqac.png" title="" alt="" width="51" height="46" />
-</div></div></div><div id="imHeader_imObjectImage_03_wrapper" class="template-object-wrapper"><div id="imHeader_imObjectImage_03"><div id="imHeader_imObjectImage_03_container"><img src="images/Immagine-2025-06-29-201711.png" title="" alt="" width="105" height="54" />
-</div></div></div><div id="imHeader_imObjectImage_04_wrapper" class="template-object-wrapper"><div id="imHeader_imObjectImage_04"><div id="imHeader_imObjectImage_04_container"><img src="images/Immagine-2025-06-29-201545.png" title="" alt="" width="57" height="57" />
-</div></div></div></div>
-					</header>
-					<div id="imStickyBarContainer">
-						<div id="imStickyBarGraphics"></div>
-						<div id="imStickyBar">
-							<div id="imStickyBarObjects"></div>
-						</div>
-					</div>
-					<a class="imHidden" href="#imGoToCont" title="Salta il menu di navigazione">Vai ai contenuti</a>
-					<div id="imSideBar">
-						<div id="imSideBarObjects"></div>
-					</div>
-					<div id="imContentGraphics"></div>
-					<main id="imContent">
-						<a id="imGoToCont"></a>
-						<div id="imPageRow_1" class="imPageRow">
-						
-						</div>
-						<div id="imCell_1" class=""> <div id="imCellStyleGraphics_1"></div><div id="imCellStyleBorders_1"></div><div id="imTextObject_01">
-							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_01_tab0" style="opacity: 1; ">
-								<div class="text-inner">
-									<div><b class="fs20lh1-5 cf1"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div><div><b class="fs20lh1-5 cf1"><br></b></div><div><b class="fs20lh1-5 cf1"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b class="fs26lh1-5 cf1 ff1">Acquista biglietto</b></div>
-								</div>
-							</div>
-						
-						</div>
-						</div><div id="imPageRow_2" class="imPageRow">
-						<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden;"><div id="imPageRowGraphics_2"></div></div>
-						</div>
-						<div id="imCell_5" class=""> <div id="imCellStyleGraphics_5"></div><div id="imCellStyleBorders_5"></div><div id="imHTMLObject_05" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!DOCTYPE html>
-						<html lang="it">
-						<head>
-						  <meta charset="UTF-8" />
-						  <title>Italo Bob Prenotazione</title>
-						  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-						  <style>
-						    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f7f7f7; }
-						    h2 { color: #B2002E; }
-						    .italo-form { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
-						    .italo-form input, .italo-form select {
-						      padding: 8px; flex: 1 1 180px; border: 1px solid #ccc; border-radius: 4px;
-						    }
-						    .italo-form button {
-						      background-color: #B2002E; color: white; border: none;
-						      padding: 10px 18px; border-radius: 4px; cursor: pointer;
-						    }
-						    .italo-row {
-						      display: flex; flex-wrap: wrap; padding: 12px 0;
-						      border-bottom: 1px solid #ddd; align-items: center;
-						      background: white;
-						    }
-						    .italo-header { background-color: #B2002E; color: white; font-weight: bold; }
-						    .italo-col { flex: 1 1 130px; padding: 8px; font-size: 14px; }
-						    .btn-prenota {
-						      background-color: #B2002E; color: white;
-						      padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer;
-						    }
-						    #riepilogo {
-						      margin-top: 30px; padding: 15px;
-						      border: 1px solid #ccc; border-radius: 6px;
-						      background-color: white;
-						    }
-						    @media screen and (max-width: 768px) {
-						      .italo-row { flex-direction: column; align-items: flex-start; }
-						    }
-						  </style>
-						</head>
-						<body>
-						
-						  <h2>🚆 Prenota il tuo treno</h2>
-						  <div class="italo-form">
-						    <input type="text" id="da" placeholder="Da (es. Milano)" />
-						    <input type="text" id="a" placeholder="A (es. Roma)" />
-						    <select id="ambiente">
-						      <option value="">Ambiente</option>
-						      <option value="Smart">Smart</option>
-						      <option value="Comfort">Comfort</option>
-						      <option value="Smart+Bus">Smart+Bus</option>
-						      <option value="Comfort+Bus">Comfort+Bus</option>
-						    </select>
-						    <select id="orario">
-						      <option value="">Orario</option>
-						      <option value="mattina">Mattina (00:00–12:00)</option>
-						      <option value="pomeriggio">Pomeriggio (12:00–18:00)</option>
-						      <option value="sera">Sera (18:00–23:59)</option>
-						    </select>
-						    <input type="email" name="email" required placeholder="Inserisci la tua email" />
+  <h2>🚆 Prenota il tuo treno</h2>
+  <div class="italo-form">
+    <input type="text" id="da" placeholder="Da (es. Milano)" />
+    <input type="text" id="a" placeholder="A (es. Roma)" />
+    <select id="ambiente">
+      <option value="">Ambiente</option>
+      <option value="Smart">Smart</option>
+      <option value="Comfort">Comfort</option>
+      <option value="Smart+Bus">Smart+Bus</option>
+      <option value="Comfort+Bus">Comfort+Bus</option>
+    </select>
+    <select id="orario">
+      <option value="">Orario</option>
+      <option value="mattina">Mattina (00:00–12:00)</option>
+      <option value="pomeriggio">Pomeriggio (12:00–18:00)</option>
+      <option value="sera">Sera (18:00–23:59)</option>
+    </select>
+    <input type="email" id="email" required placeholder="La tua email" value="battiloromassimo@virgilio.it" />
+    <button onclick="filtraTreni()">Cerca</button>
+  </div>
 
-						    <button onclick="filtraTreni()">Cerca</button>
-						  </div>
-						
-						  <div id="italotreni" style="display: none;"></div>
-						  <div id="riepilogo"></div>
-						
-						  <script>
-						    const endpoint = "https://script.google.com/macros/s/AKfycbyXaSq3zvubSmNLLhCGY-hDvCmJBZ0GxGmJjx_UB7M_7a68_WKcKYjfweQDueuZi7bIVw/exec";
-						    let tuttiTreni = [];
-						
-						    window.onload = () => {
-						      fetch(endpoint)
-						        .then(res => res.json())
-						        .then(data => { tuttiTreni = data; })
-						        .catch(err => {
-						          console.error("❌ Errore nel caricamento:", err);
-						        });
-						    };
-						
-						    function mostraTreni(lista) {
-						      let html = `
-						        <div class="italo-row italo-header">
-						          <div class="italo-col">Codice</div>
-						          <div class="italo-col">Partenza</div>
-						          <div class="italo-col">Arrivo</div>
-						          <div class="italo-col">Orario</div>
-						          <div class="italo-col">Prezzo</div>
-						          <div class="italo-col">Ambiente</div>
-						          <div class="italo-col">Treno</div>
-						          <div class="italo-col">Azione</div>
-						        </div>
-						      `;
-						      lista.forEach(treno => {
-						        html += `
-						          <div class="italo-row">
-						            <div class="italo-col">${treno.codice}</div>
-						            <div class="italo-col">${treno.partenza}</div>
-						            <div class="italo-col">${treno.arrivo}</div>
-						            <div class="italo-col">${treno.orario}</div>
-						            <div class="italo-col">€${treno.prezzo}</div>
-						            <div class="italo-col">${treno.ambiente}</div>
-						            <div class="italo-col">${treno.treno}</div>
-						            <div class="italo-col">
-						              <button class="btn-prenota" onclick='acquista(${JSON.stringify(treno)})'>Prenota</button>
-						            </div>
-						          </div>
-						        `;
-						      });
-						      document.getElementById("italotreni").innerHTML = html;
-						    }
-						
-						    function filtraTreni() {
-						      const da = document.getElementById("da").value.toLowerCase();
-						      const a = document.getElementById("a").value.toLowerCase();
-						      const ambiente = document.getElementById("ambiente").value.toLowerCase();
-						      const fascia = document.getElementById("orario").value;
-						
-						      const filtrati = tuttiTreni.filter(t => {
-						        const ora = parseInt(t.orario?.split(":")[0]) || 0;
-						        let matchOrario = true;
-						        if (fascia === "mattina") matchOrario = ora < 12;
-						        else if (fascia === "pomeriggio") matchOrario = ora >= 12 && ora < 18;
-						        else if (fascia === "sera") matchOrario = ora >= 18;
-						
-						        return (
-						          (!da || t.partenza?.toLowerCase().includes(da)) &&
-						          (!a || t.arrivo?.toLowerCase().includes(a)) &&
-						          (!ambiente || t.ambiente?.toLowerCase().includes(ambiente)) &&
-						          (!fascia || matchOrario)
-						        );
-						      });
-						
-						      document.getElementById("italotreni").style.display = "block";
-						
-						      if (filtrati.length === 0) {
-						        document.getElementById("italotreni").innerHTML = `
-						          <div style="padding: 30px; text-align: center; color: #a00028; font-weight: bold;">
-						            🚫 Nessun treno trovato con i criteri selezionati.<br>
-						            🔍 Prova a modificare la partenza, l’orario o l’ambiente.<br>
-						            🕘 I treni vengono aggiornati dinamicamente.
-						          </div>
-						        `;
-						      } else {
-						        mostraTreni(filtrati);
-						      }
-						    }
-						
-						    function acquista(treno) {
-						      const email = document.getElementById("email").value;
-						      if (!email) {
-						        alert("📬 Inserisci una email valida per vedere il riepilogo");
-						        return;
-						      }
-						
-						      const html = `
-						        <h3>🎫 Riepilogo Prenotazione</h3>
-						        <p><strong>Codice:</strong> ${treno.codice}</p>
-						        <p><strong>Da:</strong> ${treno.partenza} → <strong>A:</strong> ${treno.arrivo}</p>
-						        <p><strong>Orario:</strong> ${treno.orario}</p>
-						        <p><strong>Ambiente:</strong> ${treno.ambiente}</p>
-						        <p><strong>Email:</strong> ${email}</p>
-						        <p><strong>Prezzo:</strong> €${treno.prezzo}</p>
-						        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${treno.codice}-${treno.orario}" alt="QR Biglietto" />
-						        <br><br><button class="btn-prenota" onclick='paga(${JSON.stringify(treno)})'>💳 Procedi al pagamento</button>
-						      `;
-						      document.getElementById("riepilogo").innerHTML = html;
-						    }
-						
-						    function paga(treno) {
-						      const email = document.getElementById("email").value;
-						      if (!email) {
-						        alert("📬 Inserisci una email valida prima di procedere");
-						        return;
-						      }
-						
-						      const payload = {
-						        codice: treno.codice,
-						        partenza: treno.partenza,
-						        arrivo: treno.arrivo,
-						        prezzo: Number(treno.prezzo),
-						        email: email,
-						        orario: treno.orario,
-						        ambiente: treno.ambiente
-						      };
-						
-						      fetch("/.netlify/functions/create-checkout-session", {
-						        method: "POST",
-						        headers: { "Content-Type": "application/json" },
-						        body: JSON.stringify(payload)
-						      })
-						      .then(res => res.json())
-						      .then(session => {
-						        if (!session.url) throw new Error("URL di pagamento non ricevuto");
-						        window.location.href = session.url;
-						      })
-						      .catch(err => {
-						        console.error("❌ Errore pagamento:", err);
-						        alert("❌ Pagamento fallito: " + err.message);
-						      });
-						    }
-						  </script>
-						</body>
-						</html>
-						
-						
-						</div></div><div id="imCell_2" class=""> <div id="imCellStyleGraphics_2"></div><div id="imCellStyleBorders_2"></div><div id="imObjectImage_02"><div id="imObjectImage_02_container"><img src="images/Immagine-2025-07-06-030855.png" title="" alt="" width="588" height="368" />
-						</div></div></div><div id="imPageRow_3" class="imPageRow">
-						
-						</div>
-						<div id="imCell_3" class=""> <div id="imCellStyleGraphics_3"></div><div id="imCellStyleBorders_3"></div><div id="imObjectImage_03"><div id="imObjectImage_03_container"><img src="images/Immagine-2025-07-06-032537.png" title="" alt="" width="593" height="677" />
-						</div></div></div>
-					</main>
-					<footer id="imFooter">
-						<div id="imFooterObjects"><div id="imFooter_imObjectImage_01_wrapper" class="template-object-wrapper"><div id="imFooter_imObjectImage_01"><div id="imFooter_imObjectImage_01_container"><img src="images/Immagine-2025-07-01-000455.png" title="" alt="" width="393" height="226" />
-</div></div></div></div>
-					</footer>
-				</div>
-				<span class="imHidden"><a href="#imGoToCont" title="Rileggi i contenuti della pagina">Torna ai contenuti</a></span>
-			</div>
-		</div>
-		<script src="https://js.stripe.com/v3/"></script>
-		
-		<script>
-		
-		const stripe = Stripe('pk_live_51RcZZKFt7EaY9OTPn4hu3z4ZYfvJLZ1JsqNJhsyKj7T5BBSQCDOGVMDq5YUCkYL5HqsqoE9et25CbUjGZkAdpblO00lNy34est'); // Inserisci la tua chiave pubblica Stripe
-		
-		
-		
-		document.addEventListener('DOMContentLoaded', () => {
-		
-		  const form = document.getElementById('train-search-form');
-		
-		  const results = document.getElementById('search-results');
-		
-		
-		
-		  form.addEventListener('submit', async (e) => {
-		
-		    e.preventDefault();
-		
-		    const query = new URLSearchParams(new FormData(form)).toString();
-		
-		    results.innerHTML = '🔎 Ricerca in corso...';
-		
-		
-		
-		    try {
-		
-		      const res = await fetch('/.netlify/functions/searchTrains?' + query);
-		
-		      const trains = await res.json();
-		
-		      results.innerHTML = trains.length ? trains.map(t => `
-		
-		        <div class="train-result">
-		
-		          <p><strong>${t.TrainNumber}</strong><br>${t.DepartureTime} → ${t.ArrivalTime}<br>Prezzo: €${t.Price}</p>
-		
-		          <button onclick="bookTrain('${t.TrainNumber}', ${parseFloat(t.Price) * 100})">Prenota</button>
-		
-		        </div>
-		
-		      `).join('') : '<p>❌ Nessun treno trovato.</p>';
-		
-		    } catch {
-		
-		      results.innerHTML = '<p>⚠️ Errore nella ricerca.</p>';
-		
-		    }
-		
-		  });
-		
-		});
-		
-		
-		
-		async function bookTrain(trainNumber, amount) {
-		
-		  try {
-		
-		    const res = await fetch('/.netlify/functions/create-checkout-session', {
-		
-		      method: 'POST',
-		
-		      headers: { 'Content-Type': 'application/json' },
-		
-		      body: JSON.stringify({ trainNumber, amount })
-		
-		    });
-		
-		    const data = await res.json();
-		
-		    if (data.url) {
-		
-		      window.location.href = data.url;
-		
-		    } else {
-		
-		      alert("❌ Pagamento non avviato.");
-		
-		    }
-		
-		  } catch {
-		
-		    alert('⚠️ Errore durante il pagamento.');
-		
-		  }
-		
-		}
-		
-		</script>
-		<noscript class="imNoScript"><div class="alert alert-red">Per poter utilizzare questo sito è necessario attivare JavaScript.</div></noscript>
-	</body>
+  <div id="italotreni" style="display: none;"></div>
+  <div id="riepilogo"></div>
+
+  <script>
+    const endpoint = "https://script.google.com/macros/s/AKfycbyXaSq3zvubSmNLLhCGY-hDvCmJBZ0GxGmJjx_UB7M_7a68_WKcKYjfweQDueuZi7bIVw/exec";
+    let tuttiTreni = [];
+
+    window.onload = () => {
+      fetch(endpoint)
+        .then(res => res.json())
+        .then(data => { tuttiTreni = data; })
+        .catch(err => {
+          console.error("❌ Errore nel caricamento:", err);
+        });
+    };
+
+    function mostraTreni(lista) {
+      let html = `
+        <div class="italo-row italo-header">
+          <div class="italo-col">Codice</div>
+          <div class="italo-col">Partenza</div>
+          <div class="italo-col">Arrivo</div>
+          <div class="italo-col">Orario</div>
+          <div class="italo-col">Prezzo</div>
+          <div class="italo-col">Ambiente</div>
+          <div class="italo-col">Treno</div>
+          <div class="italo-col">Azione</div>
+        </div>
+      `;
+      lista.forEach(treno => {
+        html += `
+          <div class="italo-row">
+            <div class="italo-col">${treno.codice}</div>
+            <div class="italo-col">${treno.partenza}</div>
+            <div class="italo-col">${treno.arrivo}</div>
+            <div class="italo-col">${treno.orario}</div>
+            <div class="italo-col">€${treno.prezzo}</div>
+            <div class="italo-col">${treno.ambiente}</div>
+            <div class="italo-col">${treno.treno}</div>
+            <div class="italo-col">
+              <button class="btn-prenota" onclick='acquista(${JSON.stringify(treno)})'>Prenota</button>
+            </div>
+          </div>
+        `;
+      });
+      document.getElementById("italotreni").innerHTML = html;
+    }
+
+    function filtraTreni() {
+      const da = document.getElementById("da").value.toLowerCase();
+      const a = document.getElementById("a").value.toLowerCase();
+      const ambiente = document.getElementById("ambiente").value.toLowerCase();
+      const fascia = document.getElementById("orario").value;
+
+      const filtrati = tuttiTreni.filter(t => {
+        const ora = parseInt(t.orario?.split(":")[0]) || 0;
+        let matchOrario = true;
+        if (fascia === "mattina") matchOrario = ora < 12;
+        else if (fascia === "pomeriggio") matchOrario = ora >= 12 && ora < 18;
+        else if (fascia === "sera") matchOrario = ora >= 18;
+
+        return (
+          (!da || t.partenza?.toLowerCase().includes(da)) &&
+          (!a || t.arrivo?.toLowerCase().includes(a)) &&
+          (!ambiente || t.ambiente?.toLowerCase().includes(ambiente)) &&
+          (!fascia || matchOrario)
+        );
+      });
+
+      document.getElementById("italotreni").style.display = "block";
+
+      if (filtrati.length === 0) {
+        document.getElementById("italotreni").innerHTML = `
+          <div style="padding: 30px; text-align: center; color: #a00028; font-weight: bold;">
+            🚫 Nessun treno trovato con i criteri selezionati.<br>
+            🔍 Prova a modificare la partenza, l’orario o l’ambiente.<br>
+            🕘 I treni vengono aggiornati dinamicamente.
+          </div>
+        `;
+      } else {
+        mostraTreni(filtrati);
+      }
+    }
+
+    function acquista(treno) {
+      const email = document.getElementById("email").value;
+      if (!email) {
+        alert("📬 Inserisci una email valida per vedere il riepilogo");
+        return;
+      }
+
+      const html = `
+        <h3>🎫 Riepilogo Prenotazione</h3>
+        <p><strong>Codice:</strong> ${treno.codice}</p>
+        <p><strong>Da:</strong> ${treno.partenza} → <strong>A:</strong> ${treno.arrivo}</p>
+        <p><strong>Orario:</strong> ${treno.orario}</p>
+        <p><strong>Ambiente:</strong> ${treno.ambiente}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Prezzo:</strong> €${treno.prezzo}</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${treno.codice}-${treno.orario}" alt="QR Biglietto" />
+        <br><br><button class="btn-prenota" onclick='paga(${JSON.stringify(treno)})'>💳 Procedi al pagamento</button>
+      `;
+      document.getElementById("riepilogo").innerHTML = html;
+    }
+
+    function paga(treno) {
+      const email = document.getElementById("email").value;
+      if (!email) {
+        alert("📬 Inserisci una email valida prima di procedere");
+        return;
+      }
+
+      const payload = {
+        codice: treno.codice,
+        partenza: treno.partenza,
+        arrivo: treno.arrivo,
+        prezzo: Number(treno.prezzo),
+        email: email,
+        orario: treno.orario,
+        ambiente: treno.ambiente
+      };
+
+      fetch("/.netlify/functions/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+      .then(res => res.json())
+      .then(session => {
+        if (!session.url) throw new Error("URL di pagamento non ricevuto");
+        window.location.href = session.url;
+      })
+      .catch(err => {
+        console.error("❌ Errore pagamento:", err);
+        alert("❌ Pagamento fallito: " + err.message);
+      });
+    }
+  </script>
+</body>
 </html>
+
+
