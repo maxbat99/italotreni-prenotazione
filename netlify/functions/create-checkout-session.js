@@ -3,18 +3,9 @@ const nodemailer = require("nodemailer");
 
 exports.handler = async (event) => {
   try {
-    const data = JSON.parse(event.body);
+    const { codice, partenza, arrivo, orario, ambiente, prezzo, email } = JSON.parse(event.body);
 
-    // 🔍 Validazione campi ricevuti
-    const { codice, partenza, arrivo, prezzo, email, orario, ambiente } = data;
-
-    if (!codice || !partenza || !arrivo || !prezzo || !email) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: "❌ Dati incompleti per la prenotazione" })
-      };
-    }
-
+    // 💳 Validazione prezzo
     const prezzoCentesimi = Math.round(parseFloat(prezzo) * 100);
     if (isNaN(prezzoCentesimi) || prezzoCentesimi <= 0) {
       return {
@@ -23,35 +14,27 @@ exports.handler = async (event) => {
       };
     }
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: "❌ Email non valida" })
-      };
-    }
-
-    // 📦 Crea sessione Stripe Checkout
+    // ✅ Crea sessione Stripe
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
-      success_url: "https://genuine-platypus-99089c.netlify.app/successo.html",
+      success_url: "https://genuine-platypus-99089c.netlify.app/successo.html?codice=" + codice,
       cancel_url: "https://genuine-platypus-99089c.netlify.app/errore.html",
-      line_items: [
-        {
-          price_data: {
-            currency: "eur",
-            product_data: {
-              name: `Treno ${codice}: ${partenza} → ${arrivo}`
-            },
-            unit_amount: prezzoCentesimi
+      line_items: [{
+        price_data: {
+          currency: "eur",
+          product_data: {
+            name: `Treno ${codice} - ${partenza} → ${arrivo}`,
+            description: `${ambiente} - Orario ${orario}`
           },
-          quantity: 1
-        }
-      ]
+          unit_amount: prezzoCentesimi
+        },
+        quantity: 1
+      }],
+      customer_email: email
     });
 
-    // 📨 Configura Nodemailer
+    // 📬 Configura trasporto email (Gmail)
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -60,44 +43,34 @@ exports.handler = async (event) => {
       }
     });
 
-    // 📬 Email interna
+    // ✉️ Email al cliente
     await transporter.sendMail({
-      from: `"Italo Bob Prenotazioni" <${process.env.NOTIFY_EMAIL}>`,
-      to: process.env.NOTIFY_EMAIL,
-      subject: `🎫 Nuova prenotazione: Treno ${codice}`,
+      from: `"Italo Bob - Biglietteria" <${process.env.NOTIFY_EMAIL}>`,
+      to: email,
+      subject: `🎫 Prenotazione treno ${codice} confermata`,
       html: `
-        <h3>📬 Nuova prenotazione</h3>
+        <h2>Grazie per aver prenotato con Italo Bob!</h2>
+        <p>Ecco i dettagli del tuo viaggio:</p>
         <ul>
           <li><strong>Codice:</strong> ${codice}</li>
-          <li><strong>Partenza:</strong> ${partenza}</li>
-          <li><strong>Arrivo:</strong> ${arrivo}</li>
-          <li><strong>Email cliente:</strong> ${email}</li>
+          <li><strong>Da:</strong> ${partenza} → <strong>A:</strong> ${arrivo}</li>
+          <li><strong>Orario:</strong> ${orario}</li>
+          <li><strong>Ambiente:</strong> ${ambiente}</li>
           <li><strong>Prezzo:</strong> €${prezzo}</li>
         </ul>
+        <p>Riceverai un QR code alla conferma del pagamento.</p>
       `
     });
 
-    // 📬 Email al cliente
+    // ✉️ Notifica interna (opzionale)
     await transporter.sendMail({
-      from: `"Italo Bob" <${process.env.NOTIFY_EMAIL}>`,
-      to: email,
-      subject: `🎫 Il tuo biglietto per il Treno ${codice}`,
-      html: `
-        <h2>Grazie per la tua prenotazione!</h2>
-        <p><strong>Treno:</strong> ${codice}</p>
-        <p><strong>Da:</strong> ${partenza} → <strong>A:</strong> ${arrivo}</p>
-        <p><strong>Orario:</strong> ${orario || "N/D"}</p>
-        <p><strong>Ambiente:</strong> ${ambiente || "N/D"}</p>
-        <p><strong>Prezzo:</strong> €${prezzo}</p>
-        <p><strong>Codice prenotazione:</strong> ${session.id}</p>
-        <br>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Treno-${codice}-${orario || 'xx:xx'}" alt="QR Biglietto" />
-        <br><br>
-        <p>Porta questo biglietto digitale con te 🚆</p>
-      `
+      from: `"Italo Bob - Notifica" <${process.env.NOTIFY_EMAIL}>`,
+      to: process.env.NOTIFY_EMAIL,
+      subject: `📬 Nuova prenotazione: ${codice}`,
+      text: `Nuovo biglietto venduto a ${email} per il treno ${codice}`
     });
 
-    // 🔗 Ritorna il link Stripe
+    // 🔗 Restituisci URL Stripe
     return {
       statusCode: 200,
       body: JSON.stringify({ url: session.url })
@@ -107,7 +80,7 @@ exports.handler = async (event) => {
     console.error("❌ Errore backend:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: err.message })
+      body: JSON.stringify({ error: "❌ Errore interno nel server di prenotazione" })
     };
   }
 };
