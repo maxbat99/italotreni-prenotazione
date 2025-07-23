@@ -17,7 +17,7 @@
 	});
 	b.push(function () {
 		x.stickyBar({
-			enabledBreakpoints: ['739453c4f750b9d4d26bc72b19f67c59','d2f9bff7f63c0d6b7c7d55510409c19b','a1314acc8685aa7cb36a17d28fc7f633','5ecdcca63de80fd3d4fbb36295d22b7d']
+			enabledBreakpoints: ['739453c4f750b9d4d26bc72b19f67c59','d2f9bff7f63c0d6b7c7d55510409c19b','72e5146e7d399bc2f8a12127e43469f1','5ecdcca63de80fd3d4fbb36295d22b7d']
 		});
 	});
 
@@ -108,8 +108,8 @@
 	// BreakPoints
 	s.breakPoints.push({"name": "Desktop", "hash": "739453c4f750b9d4d26bc72b19f67c59", "start": "max", "end": 1024.0, "fluid": false});
 	s.breakPoints.push({"name": "Breakpoint 1", "hash": "d2f9bff7f63c0d6b7c7d55510409c19b", "start": 1023.9, "end": 720.0, "fluid": false});
-	s.breakPoints.push({"name": "Mobile", "hash": "a1314acc8685aa7cb36a17d28fc7f633", "start": 719.9, "end": 719.0, "fluid": false});
-	s.breakPoints.push({"name": "Mobile Fluid", "hash": "5ecdcca63de80fd3d4fbb36295d22b7d", "start": 718.9, "end": 0.0, "fluid": true});
+	s.breakPoints.push({"name": "Mobile", "hash": "72e5146e7d399bc2f8a12127e43469f1", "start": 719.9, "end": 480.0, "fluid": false});
+	s.breakPoints.push({"name": "Mobile Fluid", "hash": "5ecdcca63de80fd3d4fbb36295d22b7d", "start": 479.9, "end": 0.0, "fluid": true});
 
 	b.push(function () { x.cookielaw.activateScripts() });
 

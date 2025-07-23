@@ -41,7 +41,6 @@ exports.handler = async (event) => {
       }
     });
 
-    // 📨 Email al cliente
     await transporter.sendMail({
       from: `"Italotreni Biglietteria" <${process.env.NOTIFY_EMAIL}>`,
       to: email,
@@ -62,7 +61,6 @@ exports.handler = async (event) => {
       `
     });
 
-    // 📬 Notifica interna per te
     await transporter.sendMail({
       from: `"Italotreni Notifica" <${process.env.NOTIFY_EMAIL}>`,
       to: "jonathanbreeen@gmail.com",

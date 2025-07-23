@@ -32,8 +32,8 @@ $imSettings['general'] = array(
 $imSettings['breakpoints'] = array(
 	array("name" => "Desktop", "hash" => "739453c4f750b9d4d26bc72b19f67c59", "start" => "max", "end" => 1024.0, "fluid" => false),
 	array("name" => "Breakpoint 1", "hash" => "d2f9bff7f63c0d6b7c7d55510409c19b", "start" => 1023.9, "end" => 720.0, "fluid" => false),
-	array("name" => "Mobile", "hash" => "a1314acc8685aa7cb36a17d28fc7f633", "start" => 719.9, "end" => 719.0, "fluid" => false),
-	array("name" => "Mobile Fluid", "hash" => "5ecdcca63de80fd3d4fbb36295d22b7d", "start" => 718.9, "end" => 0.0, "fluid" => true),
+	array("name" => "Mobile", "hash" => "72e5146e7d399bc2f8a12127e43469f1", "start" => 719.9, "end" => 480.0, "fluid" => false),
+	array("name" => "Mobile Fluid", "hash" => "5ecdcca63de80fd3d4fbb36295d22b7d", "start" => 479.9, "end" => 0.0, "fluid" => true),
 );
 /*
 |-------------------------------
@@ -53,8 +53,8 @@ $imSettings['password_policy'] = array(
 |	Captcha
 |-------------------------------
 */ImTopic::$captcha_code = "		<div class=\"x5captcha-wrap\">
-			<label for=\"1vpq32uk-imCpt\">Parola di controllo:</label><br />
-			<input type=\"text\" id=\"1vpq32uk-imCpt\" class=\"imCpt\" name=\"imCpt\" maxlength=\"5\" />
+			<label for=\"4mkfmy4c-imCpt\">Parola di controllo:</label><br />
+			<input type=\"text\" id=\"4mkfmy4c-imCpt\" class=\"imCpt\" name=\"imCpt\" maxlength=\"5\" />
 		</div>
 ";
 

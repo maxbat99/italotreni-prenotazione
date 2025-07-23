@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638889148389434160" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638889190287026137" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -222,6 +222,113 @@
 						      .catch(err => alert("❌ Errore nel pagamento: " + err.message));
 						    }
 						  </script>
+						</body>
+						</html>
+						</div></div><div id="imCell_7" class=""> <div id="imCellStyleGraphics_7"></div><div id="imCellStyleBorders_7"></div><div id="imHTMLObject_07" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!DOCTYPE html>
+						<html lang="it">
+						<head>
+						  <meta charset="UTF-8" />
+						  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+						  <title>Prenotazione Italotreni</title>
+						
+						  <style>
+						    body {
+						      font-family: Arial, sans-serif;
+						      background-color: #f7f7f7;
+						      color: #333;
+						      margin: 0;
+						      padding: 30px;
+						    }
+						    h2 {
+						      color: #B2002E;
+						      margin-bottom: 20px;
+						      text-align: center;
+						    }
+						    .italo-form {
+						      max-width: 800px;
+						      margin: auto;
+						      display: flex;
+						      flex-wrap: wrap;
+						      gap: 10px;
+						    }
+						    .italo-form input,
+						    .italo-form select {
+						      flex: 1 1 30%;
+						      padding: 10px;
+						      border: 1px solid #ccc;
+						      border-radius: 4px;
+						    }
+						    .italo-form button {
+						      background-color: #B2002E;
+						      color: white;
+						      border: none;
+						      padding: 12px 18px;
+						      border-radius: 4px;
+						      cursor: pointer;
+						      flex: 1 1 100%;
+						      max-width: 200px;
+						      margin-top: 10px;
+						    }
+						    .italo-form button:hover {
+						      background-color: #87001f;
+						    }
+						    #riepilogo {
+						      background: #ffffff;
+						      padding: 20px;
+						      margin-top: 20px;
+						      border-radius: 6px;
+						      max-width: 600px;
+						      margin-left: auto;
+						      margin-right: auto;
+						      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+						      display: none;
+						    }
+						
+						    @media (max-width: 768px) {
+						      .italo-form {
+						        flex-direction: column;
+						      }
+						      .italo-form input,
+						      .italo-form select,
+						      .italo-form button {
+						        width: 100%;
+						        flex: 1 1 100%;
+						        margin-bottom: 10px;
+						        font-size: 16px;
+						      }
+						      .italo-form button {
+						        max-width: 100%;
+						      }
+						      #riepilogo {
+						        padding: 15px;
+						      }
+						    }
+						  </style>
+						</head>
+						<body>
+						
+						  <h2>🎫 Prenota il tuo viaggio Italotreni</h2>
+						
+						  <form class="italo-form" id="italotreni-form">
+						    <input type="text" name="partenza" placeholder="Stazione di partenza" required />
+						    <input type="text" name="arrivo" placeholder="Stazione di arrivo" required />
+						    <input type="date" name="data" required />
+						    <input type="time" name="orario" required />
+						    <select name="ambiente" required>
+						      <option value="Smart">Smart</option>
+						      <option value="Club">Club</option>
+						      <option value="Prima">Prima</option>
+						    </select>
+						    <input type="email" name="email" placeholder="Email del passeggero" required />
+						    <input type="text" name="posto" placeholder="Posto prenotato" required />
+						    <input type="number" step="0.01" name="prezzo" placeholder="Prezzo (€)" required />
+						    <button type="submit">Procedi al pagamento</button>
+						  </form>
+						
+						  <div id="riepilogo">
+						    <!-- Qui comparirà il riepilogo -->
+						  </div>
+						
 						</body>
 						</html>
 						</div></div><div id="imCell_2" class=""> <div id="imCellStyleGraphics_2"></div><div id="imCellStyleBorders_2"></div><div id="imObjectImage_02"><div id="imObjectImage_02_container"><img src="images/Immagine-2025-07-06-030855.png" title="" alt="" width="588" height="368" />
