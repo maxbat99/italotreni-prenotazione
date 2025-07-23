@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  margin: 0;
+  padding: 30px;
+}
+
+h2 {
+  color: #B2002E;
+  margin-bottom: 20px;
+}
+
+.italo-form {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.italo-form input,
+.italo-form select {
+  flex: 1 1 30%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.italo-form button {
+  background-color: #B2002E;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1 1 100%;
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+#italotreni div {
+  background: white;
+  padding: 15px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  max-width: 600px;
+  border-radius: 6px;
+}
+
+#riepilogo {
+  background: #ffffff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+button:hover {
+  background-color: #87001f;
+}

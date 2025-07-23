@@ -335,38 +335,33 @@ stroke-width: 1;
 .topic-comments.multiple-columns .topic-comment .topic-comment-info-body .topic-comment-info .topic-comment-avatar { display: flex; align-items: center; margin: 0 20px 0 0; }
 .topic-comments.multiple-columns .topic-comment .topic-comment-abuse { padding: 0 10px 10px 10px; }
 .topic-comments.multiple-columns .topic-comment-body { margin: 15px 0 0 0; }
-@media (max-width: 1149.9px) and (min-width: 720.0px) {
+@media (max-width: 1023.9px) and (min-width: 720.0px) {
 	.topic-bars, .topic-space { display: none; }
 	
 }
-@media (max-width: 719.9px) and (min-width: 480.0px) {
+@media (max-width: 719.9px) and (min-width: 719.0px) {
 	.topic-bars, .topic-space { display: none; }
 	
 }
-@media (max-width: 719.9px) and (min-width: 480.0px) {
+@media (max-width: 718.9px)  {
+	.topic-bars, .topic-space { display: none; }
+	
+}
+@media (max-width: 718.9px)  {
 	.comments-and-ratings-topic-form { width: 100%; }
 	.topic-form-row .topic-form-item { width: 100%; margin-right: 0; }
 	
 }
-@media (max-width: 479.9px)  {
-	.topic-bars, .topic-space { display: none; }
-	
+#media-query-to-js { position: absolute; display: none; }@media (min-width: 1024.0px) {
+	#media-query-to-js { width: 1024px; }
 }
-@media (max-width: 479.9px)  {
-	.comments-and-ratings-topic-form { width: 100%; }
-	.topic-form-row .topic-form-item { width: 100%; margin-right: 0; }
-	
-}
-#media-query-to-js { position: absolute; display: none; }@media (min-width: 1150.0px) {
-	#media-query-to-js { width: 1150px; }
-}
-@media (max-width: 1149.9px) and (min-width: 720.0px) {
+@media (max-width: 1023.9px) and (min-width: 720.0px) {
 	#media-query-to-js { width: 720px; }
 }
-@media (max-width: 719.9px) and (min-width: 480.0px) {
-	#media-query-to-js { width: 480px; }
+@media (max-width: 719.9px) and (min-width: 719.0px) {
+	#media-query-to-js { width: 719px; }
 }
-@media (max-width: 479.9px)  {
+@media (max-width: 718.9px)  {
 	#media-query-to-js { width: 0px; }
 }
 @media all and (min-width:1px) { .media-test { position: absolute !important; } }
