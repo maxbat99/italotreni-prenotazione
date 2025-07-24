@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638889306356339237" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638889408013643189" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -104,6 +104,17 @@
 						      font-size: 16px;
 						      border: 1px solid #ccc;
 						      border-radius: 6px;
+						      box-sizing: border-box;
+						    }
+						
+						    input[type="date"] {
+						      appearance: none;
+						      background-color: #fff;
+						      background-image: url('https://cdn-icons-png.flaticon.com/512/747/747310.png');
+						      background-repeat: no-repeat;
+						      background-position: right 10px center;
+						      background-size: 20px 20px;
+						      padding-right: 36px;
 						    }
 						
 						    .search-btn {
@@ -231,7 +242,7 @@
 						      })
 						      .then(res => res.json())
 						      .then(data => {
-						        const stripe = Stripe('pk_test_TUA_CHIAVE_PUBBLICA'); // Inserisci la tua chiave pubblica
+						        const stripe = Stripe('pk_test_TUA_CHIAVE_PUBBLICA'); // 🔑 Sostituisci con la tua chiave pubblica Stripe
 						        stripe.redirectToCheckout({ sessionId: data.id });
 						      });
 						    }
