@@ -35,7 +35,6 @@
 #imGoToCont { display: block; grid-column: 2 / 3; grid-row: 1 / 2; }
 #imCell_1 { display: grid; grid-column: 2 / 50; grid-row: 1 / 2; }
 #imCell_6 { display: grid; grid-column: 2 / 50; grid-row: 2 / 3; }
-#imCell_7 { display: grid; grid-column: 14 / 38; grid-row: 3 / 4; }
 #imCell_2 { display: grid; grid-column: 1 / 51; grid-row: 6 / 8; }
 #imCell_3 { display: grid; grid-column: 1 / 51; grid-row: 8 / 10; }
 #imPageRow_1 { display: block; grid-column: 1 / 51; grid-row: 1 / 2; }
@@ -46,7 +45,6 @@
 	#imGoToCont { display: block; grid-column: 2 / 3; grid-row: 1 / 2; }
 	#imCell_1 { display: grid; grid-column: 2 / 50; grid-row: 1 / 2; }
 	#imCell_6 { display: grid; grid-column: 2 / 50; grid-row: 2 / 3; }
-	#imCell_7 { display: grid; grid-column: 14 / 38; grid-row: 3 / 4; }
 	#imCell_2 { display: grid; grid-column: 1 / 51; grid-row: 6 / 8; }
 	#imCell_3 { display: grid; grid-column: 1 / 51; grid-row: 8 / 10; }
 	#imPageRow_1 { display: block; grid-column: 1 / 51; grid-row: 1 / 2; }
@@ -55,29 +53,27 @@
 	
 }
 @media (max-width: 719.9px) and (min-width: 480.0px) {
-	#imContent { display: grid; grid-template-columns: minmax(0, 1fr) 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px minmax(0, 1fr); grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto; }
+	#imContent { display: grid; grid-template-columns: minmax(0, 1fr) 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px minmax(0, 1fr); grid-template-rows: auto auto auto auto auto auto auto auto auto; }
 	#imGoToCont { display: block; grid-column: 2 / 3; grid-row: 1 / 2; }
 	#imCell_1 { display: grid; grid-column: 2 / 50; grid-row: 1 / 2; }
 	#imCell_6 { display: grid; grid-column: 2 / 50; grid-row: 2 / 3; }
-	#imCell_7 { display: grid; grid-column: 2 / 50; grid-row: 3 / 4; }
-	#imCell_2 { display: grid; grid-column: 1 / 51; grid-row: 12 / 14; }
-	#imCell_3 { display: grid; grid-column: 1 / 51; grid-row: 14 / 16; }
+	#imCell_2 { display: grid; grid-column: 1 / 51; grid-row: 6 / 8; }
+	#imCell_3 { display: grid; grid-column: 1 / 51; grid-row: 8 / 10; }
 	#imPageRow_1 { display: block; grid-column: 1 / 51; grid-row: 1 / 2; }
-	#imPageRow_2 { display: block; grid-column: 1 / 51; grid-row: 2 / 14; }
-	#imPageRow_3 { display: block; grid-column: 2 / 50; grid-row: 14 / 16; }
+	#imPageRow_2 { display: block; grid-column: 1 / 51; grid-row: 2 / 8; }
+	#imPageRow_3 { display: block; grid-column: 2 / 50; grid-row: 8 / 10; }
 	
 }
 @media (max-width: 479.9px)  {
-	#imContent { display: grid; grid-template-columns: 0 minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 0; grid-template-rows: auto auto auto auto auto; }
+	#imContent { display: grid; grid-template-columns: 0 minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 0; grid-template-rows: auto auto auto auto; }
 	#imGoToCont { display: block; grid-column: 2 / 3; grid-row: 1 / 2; }
 	#imCell_1 { display: grid; grid-column: 2 / 50; grid-row: 1 / 2; }
 	#imCell_6 { display: grid; grid-column: 2 / 50; grid-row: 2 / 3; }
-	#imCell_7 { display: grid; grid-column: 2 / 50; grid-row: 3 / 4; }
-	#imCell_2 { display: grid; grid-column: 1 / 51; grid-row: 4 / 5; }
-	#imCell_3 { display: grid; grid-column: 1 / 51; grid-row: 5 / 6; }
+	#imCell_2 { display: grid; grid-column: 1 / 51; grid-row: 3 / 4; }
+	#imCell_3 { display: grid; grid-column: 1 / 51; grid-row: 4 / 5; }
 	#imPageRow_1 { display: block; grid-column: 1 / 51; grid-row: 1 / 2; }
-	#imPageRow_2 { display: block; grid-column: 1 / 51; grid-row: 2 / 5; }
-	#imPageRow_3 { display: block; grid-column: 2 / 50; grid-row: 5 / 6; }
+	#imPageRow_2 { display: block; grid-column: 1 / 51; grid-row: 2 / 4; }
+	#imPageRow_3 { display: block; grid-column: 2 / 50; grid-row: 4 / 5; }
 	
 }
 #imHeader_imCell_1 { grid-template-columns: 100%; position: relative; box-sizing: border-box; }
@@ -170,11 +166,6 @@
 #imCellStyleGraphics_6 { grid-row: 1 / -1; grid-column: 1 / -1; background-color: transparent; }
 #imCellStyleBorders_6 { grid-row: 1 / -1; grid-column: 1 / -1; z-index: 2; }
 
-#imCell_7 { grid-template-columns: 100%; position: relative; box-sizing: border-box; }
-#imHTMLObject_07 { position: relative; align-self: start; justify-self: center; max-width: 100%; box-sizing: border-box; z-index: 3; }
-#imCellStyleGraphics_7 { grid-row: 1 / -1; grid-column: 1 / -1; background-color: transparent; }
-#imCellStyleBorders_7 { grid-row: 1 / -1; grid-column: 1 / -1; z-index: 2; }
-
 #imCell_2 { grid-template-columns: 100%; position: relative; box-sizing: border-box; }
 #imObjectImage_02 { position: relative; align-self: start; justify-self: center; max-width: 100%; box-sizing: border-box; z-index: 3; }
 #imCellStyleGraphics_2 { grid-row: 1 / -1; grid-column: 1 / -1; background-color: transparent; }
@@ -199,10 +190,6 @@
 	#imCell_6 { grid-template-rows: [row-content] auto ; }
 	#imHTMLObject_06 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
 	#imCellStyleBorders_6 {  border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
-	#imCell_7 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; }
-	#imCell_7 { grid-template-rows: [row-content] auto ; }
-	#imHTMLObject_07 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
-	#imCellStyleBorders_7 {  border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
 	#imCell_2 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; }
 	#imCell_2 { grid-template-rows: [row-content] auto ; }
 	#imObjectImage_02 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
@@ -224,10 +211,6 @@
 	#imCell_6 { grid-template-rows: [row-content] auto ; }
 	#imHTMLObject_06 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
 	#imCellStyleBorders_6 {  border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
-	#imCell_7 { padding-top: 10px; padding-bottom: 10px; padding-left: 7px; padding-right: 7px; }
-	#imCell_7 { grid-template-rows: [row-content] auto ; }
-	#imHTMLObject_07 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
-	#imCellStyleBorders_7 {  border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
 	#imCell_2 { padding-top: 10px; padding-bottom: 10px; padding-left: 7px; padding-right: 7px; }
 	#imCell_2 { grid-template-rows: [row-content] auto ; }
 	#imObjectImage_02 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
@@ -249,10 +232,6 @@
 	#imCell_6 { grid-template-rows: [row-content] auto ; }
 	#imHTMLObject_06 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
 	#imCellStyleBorders_6 {  border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
-	#imCell_7 { padding-top: 10px; padding-bottom: 10px; padding-left: 9px; padding-right: 9px; }
-	#imCell_7 { grid-template-rows: [row-content] auto ; }
-	#imHTMLObject_07 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
-	#imCellStyleBorders_7 {  border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
 	#imCell_2 { padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px; }
 	#imCell_2 { grid-template-rows: [row-content] auto ; }
 	#imObjectImage_02 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
@@ -274,10 +253,6 @@
 	#imCell_6 { grid-template-rows: [row-content] auto ; }
 	#imHTMLObject_06 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
 	#imCellStyleGraphics_6 { box-sizing: border-box; }
-	#imCell_7 { padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px; }
-	#imCell_7 { grid-template-rows: [row-content] auto ; }
-	#imHTMLObject_07 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
-	#imCellStyleGraphics_7 { box-sizing: border-box; }
 	#imCell_2 { padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px; }
 	#imCell_2 { grid-template-rows: [row-content] auto ; }
 	#imObjectImage_02 { padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; grid-row: row-content / span 1; grid-column: 1 / -1; }
