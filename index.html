@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="style/print.css?2024-4-11-0" media="print" />
 		<link rel="stylesheet" href="style/style.css?2024-4-11-0" media="screen,print" />
 		<link rel="stylesheet" href="style/template.css?2024-4-11-0" media="screen" />
-		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638889408013643189" media="screen,print" />
+		<link rel="stylesheet" href="pcss/index.css?2024-4-11-0-638889415389824583" media="screen,print" />
 		<script src="res/jquery.js?2024-4-11-0"></script>
 		<script src="res/x5engine.js?2024-4-11-0" data-files-version="2024-4-11-0"></script>
 		<script>
@@ -117,6 +117,20 @@
 						      padding-right: 36px;
 						    }
 						
+						    input[type="number"]::-webkit-inner-spin-button {
+						      opacity: 1;
+						    }
+						
+						    input[type="number"] {
+						      appearance: none;
+						      background-color: #fff;
+						      background-image: url('https://cdn-icons-png.flaticon.com/512/149/149071.png');
+						      background-repeat: no-repeat;
+						      background-position: right 10px center;
+						      background-size: 18px 18px;
+						      padding-right: 36px;
+						    }
+						
 						    .search-btn {
 						      margin-top: 16px;
 						      width: 100%;
@@ -180,7 +194,7 @@
 						      </div>
 						
 						      <div class="form-group">
-						        <input type="number" id="passengers" min="1" value="1" required />
+						        <input type="number" id="passengers" min="1" max="9" value="1" required placeholder="Numero passeggeri" />
 						      </div>
 						
 						      <div class="form-group">
@@ -242,7 +256,7 @@
 						      })
 						      .then(res => res.json())
 						      .then(data => {
-						        const stripe = Stripe('pk_test_TUA_CHIAVE_PUBBLICA'); // 🔑 Sostituisci con la tua chiave pubblica Stripe
+						        const stripe = Stripe('pk_test_TUA_CHIAVE_PUBBLICA'); // 🔐 Inserisci la tua chiave pubblica Stripe
 						        stripe.redirectToCheckout({ sessionId: data.id });
 						      });
 						    }

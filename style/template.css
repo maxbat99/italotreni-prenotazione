@@ -10,7 +10,7 @@ body { margin: 0; padding: 0; text-align: left; height: 100%; }
 #imPageToTop { position: fixed; bottom: 30px; right: 30px; z-index: 10500; display: none; opacity: 0.75 }
 #imPageToTop:hover {opacity: 1; cursor: pointer; }
 @media (min-width: 1024.0px) {
-		#imPageExtContainer { background-image: url('Immagine-2025-06-30-033133.png'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: transparent; }
+		#imPageExtContainer { background-image: url('Immagine-2025-06-30-033133.png'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: rgba(166, 28, 0, 1); }
 		#imPage { padding-top: 16px; padding-bottom: 16px; min-width: 1024px; }
 		#imHeaderBg { height: 81px; background-image: none; background-color: transparent; }
 		#imHeader { background-image: none; background-color: rgba(166, 28, 0, 1); }
