@@ -7,8 +7,20 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "stripe": "^12.0.0"
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "googleapis": "^154.0.0",
+    "stripe": "^12.18.0"
   },
   "author": "Massimo",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TUO_USERNAME/TUO_REPO.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/TUO_USERNAME/TUO_REPO/issues"
+  },
+  "homepage": "https://github.com/TUO_USERNAME/TUO_REPO#readme"
 }
