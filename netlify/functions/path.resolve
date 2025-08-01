@@ -1,0 +1,31 @@
+const { google } = require("googleapis");
+const path = require("path");
+const scrapeItalo = require("./scrapeItalo");
+
+async function saveToSheets() {
+  const auth = new google.auth.GoogleAuth({
+    keyFile: path.resolve(__dirname, "creds", "credenziali.json"),
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"]
+  });
+
+  const client = await auth.getClient();
+  const sheets = google.sheets({ version: "v4", auth: client });
+
+  const spreadsheetId = "1tmY7r8cVpbRwY5_KkCOStkoGA9IdYHK93aL9SrWgLHc";
+  const dati = await scrapeItalo();
+
+  const valori = dati.map(r => [
+    r.from, r.to, r.date, r.train, r.departure, r.arrival, r.price, r.ambiente
+  ]);
+
+  await sheets.spreadsheets.values.update({
+    spreadsheetId,
+    range: "Foglio1!A2",
+    valueInputOption: "USER_ENTERED",
+    resource: { values: valori }
+  });
+
+  console.log("✅ Dati aggiornati su Google Sheets");
+}
+
+module.exports = saveToSheets;

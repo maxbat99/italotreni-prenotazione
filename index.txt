@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>italotreno.it - Prenota il tuo viaggio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Titillium Web', sans-serif;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #ba0c2f;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+    .logo {
+      font-size: 26px;
+      font-weight: 600;
+    }
+    .form-section {
+      background-color: white;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .form-section h2 {
+      color: #ba0c2f;
+      margin-bottom: 20px;
+    }
+    .form-section input, .form-section button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-section button {
+      background-color: #ba0c2f;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .form-section button:hover {
+      background-color: #a50929;
+    }
+    .message-box {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      font-size: 18px;
+      border-radius: 8px;
+      display: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .message-box.success {
+      background: #e1f7e0;
+      border-left: 5px solid #69c36c;
+      color: #2a5d2a;
+    }
+    .message-box.cancel {
+      background: #fde2e2;
+      border-left: 5px solid #d88a8a;
+      color: #842929;
+    }
+    .message-box a {
+      color: #ba0c2f;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: -50px;
+      font-size: 28px;
+      animation: viaggio 3s linear infinite;
+    }
+    @keyframes viaggio {
+      0% { left: -50px; }
+      50% { left: 50%; transform: translateX(-50%) scale(1.2); }
+      100% { left: 100%; transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">italotreno.it</div>
+    <div>Prenota il tuo viaggio in pochi clic</div>
+  </header>
+
+  <section class="form-section" id="form-area">
+    <h2>🔍 Cerca il tuo treno</h2>
+    <form id="italotreni-form">
+      <input type="text" id="from" placeholder="Da (es: Roma Termini)" required />
+      <input type="text" id="to" placeholder="A (es: Milano Centrale)" required />
+      <input type="date" id="date-andata" required />
+      <input type="email" id="email" placeholder="Email per ricevere il biglietto" required />
+      <button type="submit">Cerca treni</button>
+    </form>
+  </section>
+
+  <!-- Messaggio di esito prenotazione -->
+  <div id="success-message" class="message-box success">
+    <div class="badge">🎫</div>
+    ✅ Prenotazione completata con successo!<br>
+    Riceverai un'email con il biglietto. Buon viaggio! 🛤️
+    <a href="index.html">← Torna alla home</a>
+  </div>
+
+  <div id="cancel-message" class="message-box cancel">
+    ❌ Prenotazione annullata o non riuscita.<br>
+    Nessun importo è stato addebitato.
+    <a href="index.html">← Torna alla home</a>
+  </div>
+
+  <script>
+    // Redirect con parametri
+    document.getElementById("italotreni-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const params = new URLSearchParams({
+        from: document.getElementById("from").value,
+        to: document.getElementById("to").value,
+        date: document.getElementById("date-andata").value,
+        email: document.getElementById("email").value
+      });
+      window.location.href = "treni.html?" + params.toString();
+    });
+
+    // Esito post-checkout Stripe
+    const query = new URLSearchParams(window.location.search);
+    const esito = query.get("esito");
+
+    if (esito === "success") {
+      document.getElementById("form-area").style.display = "none";
+      document.getElementById("success-message").style.display = "block";
+    } else if (esito === "cancel") {
+      document.getElementById("form-area").style.display = "none";
+      document.getElementById("cancel-message").style.display = "block";
+    }
+  </script>
+
+  <noscript>
+    <div style="text-align:center; background: #fdd; padding: 16px; font-weight: bold;">
+      ⚠️ Per usare correttamente questo sito è necessario abilitare JavaScript.
+    </div>
+  </noscript>
+</body>
+</html>

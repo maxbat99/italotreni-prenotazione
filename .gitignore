@@ -1,0 +1,54 @@
+# Node.js dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+.cache/
+coverage/
+*.log
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.swp
+*.sublime-project
+*.sublime-workspace
+
+# OS-generated files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Windows-specific
+ntuser.*
+*.lnk
+AppData/
+OneDrive/
+Cookies/
+Documents/
+Pictures/
+Saved Games/
+Videos/
+
+# Misc
+*.bak
+*.tmp
+stripe-checkout/
+test-results/
+
+
+# Local Netlify folder
+.netlify
+
+netlify/functions/creds/credenziali.json
+
+
+# Sicurezza credenziali
+netlify/functions/creds/credenziali.json
+

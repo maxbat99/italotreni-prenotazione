@@ -1,0 +1,29 @@
+{
+  "name": "italotreni",
+  "version": "1.0.0",
+  "description": "Funzioni serverless per prenotazioni treni con Stripe",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "googleapis": "^154.0.0",
+    "stripe": "^12.18.0"
+  },
+  "author": "Massimo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TUO_USERNAME/TUO_REPO.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/TUO_USERNAME/TUO_REPO/issues"
+  },
+  "homepage": "https://github.com/TUO_USERNAME/TUO_REPO#readme",
+  "devDependencies": {
+    "netlify-cli": "^22.4.0"
+  }
+}

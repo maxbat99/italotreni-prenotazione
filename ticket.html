@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Biglietto Italo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+    }
+    .header {
+      background-color: #b2002e;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .ticket-box {
+      background-color: #fff;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .ticket-box h2 {
+      color: #b2002e;
+      margin-bottom: 12px;
+    }
+    .ticket-info {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .ticket-info span {
+      display: block;
+      margin-bottom: 6px;
+    }
+    .confirm-msg {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">italotreno.it</div>
+
+  <div class="ticket-box">
+    <h2>🎫 Biglietto Confermato</h2>
+    <div class="ticket-info" id="ticket-info">
+      <span><strong>Da:</strong> ...</span>
+      <span><strong>A:</strong> ...</span>
+      <span><strong>Data partenza:</strong> ...</span>
+      <span><strong>Orario:</strong> ...</span>
+      <span><strong>Ambiente:</strong> ...</span>
+      <span><strong>Numero passeggeri:</strong> ...</span>
+      <span><strong>Prezzo:</strong> ...</span>
+      <span><strong>Email:</strong> ...</span>
+    </div>
+    <div class="confirm-msg">✅ Il tuo biglietto è stato inviato via email.</div>
+  </div>
+
+  <script>
+    // Recupera i dati dal localStorage
+    const dati = JSON.parse(localStorage.getItem("bigliettoItalo"));
+
+    if (dati) {
+      document.getElementById("ticket-info").innerHTML = `
+        <span><strong>Da:</strong> ${dati.from}</span>
+        <span><strong>A:</strong> ${dati.to}</span>
+        <span><strong>Data partenza:</strong> ${dati.data}</span>
+        <span><strong>Orario:</strong> ${dati.orario}</span>
+        <span><strong>Ambiente:</strong> ${dati.ambiente}</span>
+        <span><strong>Numero passeggeri:</strong> ${dati.passeggeri}</span>
+        <span><strong>Prezzo:</strong> €${(dati.prezzo / 100).toFixed(2)}</span>
+        <span><strong>Email:</strong> ${dati.email}</span>
+      `;
+    } else {
+      document.getElementById("ticket-info").innerHTML = "<span>❌ Nessun dato disponibile.</span>";
+    }
+  </script>
+</body>
+</html>

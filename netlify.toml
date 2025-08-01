@@ -1,0 +1,39 @@
+[functions]
+directory = "netlify/functions"
+
+[functions."update-trains"]
+  schedule = "0 6 * * *"
+
+
+# ⚠️ CREDENZIALI PRIVATE
+creds/
+*.json
+
+# 🛠️ Dipendenze
+node_modules/
+
+# 🧪 Log e cache
+logs/
+*.log
+.cache/
+dist/
+
+# 📦 Output temporanei
+*.zip
+*.tar.gz
+
+# 🔍 Playwright outputs (screenshots, traces, etc.)
+playwright-report/
+test-results/
+
+# 💻 IDE / Editor
+.vscode/
+.idea/
+.DS_Store
+
+# 🔄 File di sistema
+Thumbs.db
+
+[[functions]]
+  schedule = "@daily"
+  path = "aggiorna-treni"
